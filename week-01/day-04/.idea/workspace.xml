@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="571beb78-c93d-4d4f-8ec8-f3ed0bc39ac5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/excercise09.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/excercise10.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/excercise01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/excercise01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/excercise02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/excercise02.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/excercise03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/excercise03.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/excercise04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/excercise04.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/excercise05.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/excercise05.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/excercise06.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/excercise06.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/excercise07.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/excercise07.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/excercise08.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/excercise08.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,23 +30,23 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="9" />
+          <entry key="java" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="9" />
+          <entry key="JAVA" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="4" />
-          <entry key="java" value="1392" />
+          <entry key="java" value="1673" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1392" />
+          <entry key="JAVA" value="1673" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
@@ -66,11 +58,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/excercise09.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
               <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/excercise10.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -99,6 +100,7 @@
         <option value="$PROJECT_DIR$/src/Excercise07.java" />
         <option value="$PROJECT_DIR$/src/Excercise06.java" />
         <option value="$PROJECT_DIR$/src/excercise09.java" />
+        <option value="$PROJECT_DIR$/src/excercise10.java" />
       </list>
     </option>
   </component>
@@ -142,7 +144,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537442180694" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537442464061" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -159,14 +161,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.excercise09">
-    <configuration name="Excercise05" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Excercise05" />
-      <module name="day-04" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.excercise10">
     <configuration name="Excercise06" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Excercise06" />
       <module name="day-04" />
@@ -190,6 +185,13 @@
     </configuration>
     <configuration name="excercise09" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="excercise09" />
+      <module name="day-04" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="excercise10" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="excercise10" />
       <module name="day-04" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -243,19 +245,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Excercise05" />
       <item itemvalue="Application.Excercise06" />
       <item itemvalue="Application.Excercise07" />
       <item itemvalue="Application.Excercise08" />
       <item itemvalue="Application.excercise09" />
+      <item itemvalue="Application.excercise10" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.excercise10" />
         <item itemvalue="Application.excercise09" />
         <item itemvalue="Application.Excercise08" />
         <item itemvalue="Application.Excercise07" />
         <item itemvalue="Application.Excercise06" />
-        <item itemvalue="Application.Excercise05" />
       </list>
     </recent_temporary>
   </component>
@@ -270,12 +272,12 @@
       <option name="presentableId" value="Default" />
       <updated>1537432469315</updated>
       <workItem from="1537432477727" duration="604000" />
-      <workItem from="1537433794473" duration="5269000" />
+      <workItem from="1537433794473" duration="5553000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5873000" />
+    <option name="totallyTimeSpent" value="6157000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -382,6 +384,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/excercise10.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
         </state>
       </provider>
     </entry>
