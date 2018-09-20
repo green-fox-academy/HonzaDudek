@@ -1,4 +1,4 @@
-public class Excercise06 {
+public class excercise06 {
     public static void main(String[] args) {
         int dailyCodingHours = 6;
         int weeksInSemester = 17;

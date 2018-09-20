@@ -1,4 +1,4 @@
-public class Excercise02 {
+public class excercise02 {
     public static void main(String[] args) {
         System.out.println("Humpty Dumpty sat on a wall,");
         System.out.println("Humpty Dumpty had a great fall.");
