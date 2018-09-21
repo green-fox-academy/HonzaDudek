@@ -8,13 +8,12 @@ public class excercise29 {
         int numberOfLines = scanner.nextInt();
         String star = "*";
         String space = " ";
-        StringBuilder str = new StringBuilder(star);
 
-        for (int i = 0; i < numberOfLines; i++) {
-            for (int j = numberOfLines - i; j > 0; j--) {
+        for (int level = 0; level < numberOfLines; level++) {
+            for (int numberofSpaces = numberOfLines - level; numberofSpaces > 0; numberofSpaces--) {
                 System.out.print(space);
             }
-            for (int k = 0; k < i; k++) {
+            for (int numberOfStars = 0; numberOfStars < level; numberOfStars++) {
                 System.out.print(star + star);
             }
             System.out.println(star);

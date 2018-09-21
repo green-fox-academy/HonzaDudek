@@ -2,8 +2,9 @@ import java.util.Scanner;
 
 public class excercise16 {
     public static void main(String[] args) {
-        System.out.println("How many chickens does the farmer have?");
         Scanner scanner = new Scanner(System.in);
+
+        System.out.println("How many chickens does the farmer have?");
         int chickens = scanner.nextInt();
         chickens = chickens * 2;
 
