@@ -11,7 +11,7 @@ public class excercise30 {
 
         for (int level = 0; level < numberOfLines; level++) {
             if (numberOfLines / (level + 1) >= 2) {
-                for (int numberOfSpaces = (numberOfLines - level); numberOfSpaces > 0; numberOfSpaces--) {
+                for (int numberOfSpaces = (numberOfLines / 2 - level) - 1; numberOfSpaces > 0; numberOfSpaces--) {
                     System.out.print(space);
                 }
                 for (int numberOfStars = 0; numberOfStars < level; numberOfStars++) {
@@ -21,13 +21,13 @@ public class excercise30 {
             }
 
             else {
-                for (int numberOfSpaces = 0; numberOfSpaces < numberOfLines - 1; numberOfSpaces++) {
+                for (int numberOfSpaces = level - 2; numberOfSpaces > 0; numberOfSpaces--) {
                     System.out.print(space);
                 }
-                for (int numberOfStars = 0; numberOfStars < level -1; numberOfStars++) {
+                for (int numberOfStars = level; numberOfStars > 0; numberOfStars--) {
                     System.out.print(star);
                 }
-                System.out.println(star);
+                System.out.println();
             }
         }
     }
