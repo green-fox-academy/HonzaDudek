@@ -9,13 +9,13 @@ public class excercise30 {
         String star = "*";
         String space = " ";
 
-        for (int level = 0; level < numberOfLines; level++) {
-            if (numberOfLines / (level + 1) >= 2) {
+        for (int level = 1; level < numberOfLines; level++) {
+            if (numberOfLines / (level) >= 2) {
                 for (int numberOfSpaces = (numberOfLines / 2 - level) - 1; numberOfSpaces > 0; numberOfSpaces--) {
                     System.out.print(space);
                 }
                 for (int numberOfStars = 0; numberOfStars < level; numberOfStars++) {
-                    System.out.print(star + star);
+                    System.out.print(star);
                 }
                 System.out.println(star);
             }

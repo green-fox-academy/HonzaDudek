@@ -21,8 +21,8 @@ public class guessMyNumber {
         }
 
         // Program intializes random function with given range
-        int range = (lastNumber - startingNumber) +1;
-        int randomNumber = (int)(Math.random() * range) + startingNumber;
+        int range = (lastNumber - startingNumber) + 1;
+        int randomNumber = (int) (Math.random() * range) + startingNumber;
 
         // Program sets starting and current number of lives
         int startingLives = 5;
@@ -38,17 +38,14 @@ public class guessMyNumber {
             if (guessedNumber < startingNumber || guessedNumber > lastNumber) {
                 System.out.println("Please choose number from " + startingNumber + " to " + lastNumber);
                 guessedNumber = scanner.nextInt();
-            }
-            else if (guessedNumber == randomNumber) {
-                System.out.println("Congratulations, you have won with "+ lives + " lives left!!!");
+            } else if (guessedNumber == randomNumber) {
+                System.out.println("Congratulations, you have won with " + lives + " lives left!!!");
                 break;
-            }
-            else if (guessedNumber < randomNumber) {
+            } else if (guessedNumber < randomNumber) {
                 lives -= 1;
                 System.out.println("Too low, please choose higher number. You have " + lives + " left.");
                 guessedNumber = scanner.nextInt();
-            }
-            else {
+            } else {
                 lives -= 1;
                 System.out.println("Too high, please choose higher number. You have " + lives + " left.");
                 guessedNumber = scanner.nextInt();
