@@ -4,6 +4,7 @@ public class excercise04 {
         String indentation = "  ";
 
         StringBuilder todoList = new StringBuilder(todoText);
+        todoList.insert(0, "To Do list\n");
         todoList.append(" - Download games\n");
         todoList.append(indentation + "- Diablo\n");
 
