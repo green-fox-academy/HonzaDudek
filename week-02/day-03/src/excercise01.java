@@ -4,6 +4,8 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
     public class excercise01 {
         public static void mainDraw(Graphics graphics){
+            ImagePanel panel = new ImagePanel();
+            panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 
             graphics.setColor(Color.RED);
             graphics.drawLine(0, HEIGHT/2, WIDTH/2, HEIGHT/2);
@@ -20,13 +22,16 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
         static int WIDTH = 320;
         static int HEIGHT = 343;
 
+
         public static void main(String[] args) {
             JFrame jFrame = new JFrame("Drawing");
-            jFrame.setSize(new Dimension(WIDTH, HEIGHT));
             jFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-            jFrame.add(new ImagePanel());
+            ImagePanel panel = new ImagePanel();
+            panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+            jFrame.add(panel);
             jFrame.setLocationRelativeTo(null);
             jFrame.setVisible(true);
+            jFrame.pack();
         }
 
         static class ImagePanel extends JPanel {
