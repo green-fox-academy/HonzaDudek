@@ -5,31 +5,34 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class drawHexagon {
     public static void mainDraw(Graphics graphics) {
 
-        for (int i = 7; i > 0; i--) {
-            drawHexagonColumn(graphics, i, 20, 20*i);
-        }
+        drawBigHexagon(graphics, 7, 20, 20);
 
     }
 
     public static void drawHexagonColumn(Graphics graphics, int numberOfHexagons, int sizeOfHexagon, int offset) {
-        for (int i = 0; i < numberOfHexagons; i++) {
-            drawHexagon(graphics, WIDTH/2 + offset * 1.76, HEIGHT/3 + sizeOfHexagon * i * 1.76, sizeOfHexagon);
+            for (int i = numberOfHexagons; i > 0; i--) {
+                drawOneHexagon(graphics, WIDTH/2 , HEIGHT/10 +  i * offset * 1.7, sizeOfHexagon);
+            }
+        }
+
+
+    public static void drawHexagonHalfs(Graphics graphics, int numberOfHexagons, int sizeOfHexagon, int offset) {
+        for (int j = 1; j <= numberOfHexagons - 1; j++ ) {
+            for (int i = numberOfHexagons; i > 0; i--) {
+                drawOneHexagon(graphics, WIDTH/2 + j * offset * 1.5, HEIGHT/10 +  i * offset * 1.7 + j * offset * 0.866, sizeOfHexagon);
+                drawOneHexagon(graphics, WIDTH/2 - j * offset * 1.5, HEIGHT/10 +  i * offset * 1.7 + j * offset * 0.866, sizeOfHexagon);
+            }
+            numberOfHexagons -= 1;
         }
     }
 
-//        drawHexagon(graphics, WIDTH/2 - 0 * 1.5, HEIGHT/3 + 0 *  1.75, 20);
-//
-//                drawHexagon(graphics, WIDTH/2 - 20 * 1.5, HEIGHT/3 + 10 * 1.5 + 0 *  1.75, 20);
-//                drawHexagon(graphics, WIDTH/2 + 20 * 1.5, HEIGHT/3 + 10 * 1.5 + 0 *  1.75, 20);
-//
-//
-//                drawHexagon(graphics, WIDTH/2 - 40 * 1.5, HEIGHT/3 + 20 * 1.5 + 20 *  1.75, 20);
-//                drawHexagon(graphics, WIDTH/2 + 40 * 1.5, HEIGHT/3 + 20 * 1.5 + 20 *  1.75, 20);
+    public static void  drawBigHexagon(Graphics graphics, int numberOfHexagons, int sizeOfHexagon, int offset) {
+        drawHexagonColumn(graphics, numberOfHexagons,sizeOfHexagon, offset);
+        drawHexagonHalfs(graphics, numberOfHexagons - 1,sizeOfHexagon, offset);
+    }
 
 
-
-
-    public static void drawHexagon(Graphics graphics, double x, double y, double size) {
+    public static void drawOneHexagon(Graphics graphics, double x, double y, double size) {
         drawLine.drawOneLine(graphics, x - size/2, y - size*0.866, x + size/2, y - size*0.866);
         drawLine.drawOneLine(graphics, x + size/2, y - size*0.866, x+size, y);
         drawLine.drawOneLine(graphics, x +size, y , x+size/2, y + size*0.866);
