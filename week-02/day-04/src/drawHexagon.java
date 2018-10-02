@@ -11,16 +11,15 @@ public class drawHexagon {
 
     public static void drawHexagonColumn(Graphics graphics, int numberOfHexagons, int sizeOfHexagon, int offset) {
             for (int i = numberOfHexagons; i > 0; i--) {
-                drawOneHexagon(graphics, WIDTH/2 , HEIGHT/10 +  i * offset * 1.7, sizeOfHexagon);
+                drawLine.drawOneHexagon(graphics, WIDTH/2 , HEIGHT/10 +  i * offset * 1.7, sizeOfHexagon);
             }
         }
-
 
     public static void drawHexagonHalfs(Graphics graphics, int numberOfHexagons, int sizeOfHexagon, int offset) {
         for (int j = 1; j <= numberOfHexagons - 1; j++ ) {
             for (int i = numberOfHexagons; i > 0; i--) {
-                drawOneHexagon(graphics, WIDTH/2 + j * offset * 1.5, HEIGHT/10 +  i * offset * 1.7 + j * offset * 0.866, sizeOfHexagon);
-                drawOneHexagon(graphics, WIDTH/2 - j * offset * 1.5, HEIGHT/10 +  i * offset * 1.7 + j * offset * 0.866, sizeOfHexagon);
+                drawLine.drawOneHexagon(graphics, WIDTH/2 + j * offset * 1.5, HEIGHT/10 +  i * offset * 1.7 + j * offset * 0.866, sizeOfHexagon);
+                drawLine.drawOneHexagon(graphics, WIDTH/2 - j * offset * 1.5, HEIGHT/10 +  i * offset * 1.7 + j * offset * 0.866, sizeOfHexagon);
             }
             numberOfHexagons -= 1;
         }
@@ -30,18 +29,6 @@ public class drawHexagon {
         drawHexagonColumn(graphics, numberOfHexagons,sizeOfHexagon, offset);
         drawHexagonHalfs(graphics, numberOfHexagons - 1,sizeOfHexagon, offset);
     }
-
-
-    public static void drawOneHexagon(Graphics graphics, double x, double y, double size) {
-        drawLine.drawOneLine(graphics, x - size/2, y - size*0.866, x + size/2, y - size*0.866);
-        drawLine.drawOneLine(graphics, x + size/2, y - size*0.866, x+size, y);
-        drawLine.drawOneLine(graphics, x +size, y , x+size/2, y + size*0.866);
-        drawLine.drawOneLine(graphics, x+size/2, y + size*0.866, x - size/2, y + size*0.866);
-        drawLine.drawOneLine(graphics, x - size/2, y + size*0.866, x - size, y);
-        drawLine.drawOneLine(graphics, x - size, y, x - size/2, y - size*0.866);
-    }
-
-
 
     // Don't touch the code below
     static int WIDTH = 320;

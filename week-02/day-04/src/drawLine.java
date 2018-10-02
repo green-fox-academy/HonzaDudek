@@ -23,6 +23,15 @@ public class drawLine {
         drawLine.drawOneLine(graphics, x - size / 2, y + triangleHeight(size), x + size / 2, y + triangleHeight(size));
     }
 
+    public static void drawOneHexagon(Graphics graphics, double x, double y, double size) {
+        drawLine.drawOneLine(graphics, x - size/2, y - size*0.866, x + size/2, y - size*0.866);
+        drawLine.drawOneLine(graphics, x + size/2, y - size*0.866, x+size, y);
+        drawLine.drawOneLine(graphics, x +size, y , x+size/2, y + size*0.866);
+        drawLine.drawOneLine(graphics, x+size/2, y + size*0.866, x - size/2, y + size*0.866);
+        drawLine.drawOneLine(graphics, x - size/2, y + size*0.866, x - size, y);
+        drawLine.drawOneLine(graphics, x - size, y, x - size/2, y - size*0.866);
+    }
+
     public static double triangleHeight(double size) {
         double triangleHeight = size * Math.sqrt(3) / 2;
         return triangleHeight;

@@ -5,18 +5,28 @@ public class excercise19 {
     }
     
     public static void reverse(int[] array) {
-        int temp = 0;
-        int temp1 = 0;
-        for (int i = 0; i < array.length - 1; i++) {
-                temp = array[i];
-                temp1 = array[array.length - 1 - i];
-
-                array[i] = temp1;
-                array[array.length - 1 - i] = temp;
+//        int temp = 0;
+//        int temp1 = 0;
+//        for (int i = 0; i < array.length - 1; i++) {
+//                temp = array[i];
+//                temp1 = array[array.length - 1 - i];
+//
+//                array[i] = temp1;
+//                array[array.length - 1 - i] = temp;
+//        }
+//
+//        for (int i = 0; i < array.length; i++) {
+//            System.out.print(array[i]);
+//        }
+        int[] temp = new int[array.length + 1];
+        for (int i = 0; i < array.length / 2; i++) {
+            temp[i] = array[i];
+            array[i] = array[array.length - 1 - i];
+            array[array.length - 1 - i] = temp[i];
         }
 
         for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i]);
+            System.out.print(array[i] + ", ");
         }
     }
 }
