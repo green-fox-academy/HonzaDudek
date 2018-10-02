@@ -41,7 +41,7 @@ public class logs {
 
     public static List uniqueList(List list) {
         List<String> uniqueValuesList = new ArrayList<>();
-        for (int i = 0; i < list.size() - 1; i++) {
+        for (int i = 0; i < list.size(); i++) {
             if(!uniqueValuesList.contains(list.get(i))) {
                 uniqueValuesList.add(list.get(i).toString());
             }
