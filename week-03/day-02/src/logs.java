@@ -1,10 +1,8 @@
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class logs {
     public static void main(String[] args) {
@@ -19,7 +17,7 @@ public class logs {
             List<String> methods = new ArrayList<>();
 
             for (int i = 0; i < lines.size(); i++) {
-                ipAdress.add(lines.get(i).substring(26, 40).trim());
+                ipAdress.add(lines.get(i).split("   ")[1]);
             }
 
             for (int i = 0; i < lines.size(); i++) {
@@ -30,7 +28,7 @@ public class logs {
 
             System.out.println("Number of unique items: " + uniqueIp.size());
 
-            System.out.println("Number of POST methods: " + countOccurances(methods,"POST"));
+            System.out.println("Number of POST methods: " + countOccurances(methods, "POST"));
             System.out.println("Number of POST methods: " + countOccurances(methods, "GET"));
 
         } catch (IOException e) {
@@ -38,21 +36,20 @@ public class logs {
         }
     }
 
-
     public static List uniqueList(List list) {
         List<String> uniqueValuesList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
-            if(!uniqueValuesList.contains(list.get(i))) {
+            if (!uniqueValuesList.contains(list.get(i))) {
                 uniqueValuesList.add(list.get(i).toString());
             }
         }
-    return uniqueValuesList;
+        return uniqueValuesList;
     }
 
     public static int countOccurances(List list, String item) {
         int counter = 0;
         for (int i = 0; i < list.size(); i++) {
-            if(list.get(i).equals(item)) {
+            if (list.get(i).equals(item)) {
                 counter++;
             }
         }
