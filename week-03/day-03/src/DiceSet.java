@@ -39,7 +39,7 @@ public class DiceSet {
 
         int[] dices = diceSet.roll();
         for (int i = 0; i < dices.length; i++) {
-            while (dices[i] != 6) {
+            while (diceSet.getCurrent(i) != 6) {
                 diceSet.reroll(i);
                 counterOfThrows++;
             }
