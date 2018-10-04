@@ -5,7 +5,7 @@ public class Xremoval {
 
     public static String removeX(String string) {
         if (string.contains("x")) {
-            return string.replace("x", "");
+            return removeX(string.substring(0,string.indexOf("x")) + string.substring(string.indexOf("x")+1));
         }
         else {
             return string;
