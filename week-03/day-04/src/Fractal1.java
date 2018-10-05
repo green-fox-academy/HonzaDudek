@@ -1,4 +1,5 @@
-import javafx.css.Size;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 
 import javax.swing.*;
 
@@ -9,98 +10,66 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class Fractal1 {
 
     public static void mainDraw(Graphics graphics) {
+        // draw four different size and color rectangles.
+        // avoid code duplication.
 
-        System.out.println(drawFractal1(graphics, 10, 0, 200));
+//        graphics.drawRect(WIDTH/3, 0, WIDTH/3, HEIGHT);
+//        graphics.drawRect(0, HEIGHT/3, WIDTH, HEIGHT/3);
+//
+//        graphics.drawRect(WIDTH/3 + WIDTH/9 , 0, WIDTH/9, HEIGHT / 3);
+//        graphics.drawRect(WIDTH / 3, HEIGHT/9 , WIDTH/3, HEIGHT/9);
+//
+//        graphics.drawRect(WIDTH/3 + WIDTH/9 + WIDTH/27 , 0, WIDTH/27, HEIGHT / 9);
+//        graphics.drawRect(WIDTH / 3 + WIDTH / 9, HEIGHT/27 , WIDTH/9, HEIGHT/27);
 
-//        drawLines(graphics, WIDTH / 3, 0, WIDTH / 3, HEIGHT);
-//        drawLines(graphics, WIDTH - WIDTH / 3, 0, WIDTH - WIDTH / 3, HEIGHT);
-//        drawLines(graphics, 0, HEIGHT / 3, WIDTH, HEIGHT / 3);
-//        drawLines(graphics, 0, HEIGHT - HEIGHT / 3, WIDTH, HEIGHT - HEIGHT / 3);
 
-        //drawCross(graphics, WIDTH / 2, HEIGHT / 2, 60);
+        drawCross(graphics, 0, 0, WIDTH);
+//        drawCross(graphics, WIDTH / 3, 0, WIDTH / 3);
+
+//        System.out.println(drawFractal(graphics, WIDTH/3, 0, WIDTH/3, HEIGHT, 10, 1));
 
     }
 
-    public static int drawFractal1(Graphics graphics, int n, int i, int size) {
-        if (n == 1) {
-            return n;
-        } else {
+//    public static int drawFractal(Graphics graphics, int x, int y, int size, int n, int i) {
+//        if (n == 0) {
+//            return 1;
+//        } else {
+////            System.out.println(n);
+//            System.out.println(x);
+//            System.out.println(i);
+//            graphics.drawRect(x, y, WIDTH / (i * 3), HEIGHT / i);
+//            return drawFractal(graphics, x + WIDTH / i, y, WIDTH / i, HEIGHT / i, n - 1, i * 3);
+//
+//        }
+//    }
 
-            drawCross(graphics, (WIDTH / 2), HEIGHT / 2, size / 3);
-            drawCross(graphics, (WIDTH / 2 - size * i), HEIGHT / 2, size / 3);
-            drawCross(graphics, (WIDTH / 2 + size * i), HEIGHT / 2, size / 3);
-            drawCross(graphics, (WIDTH / 2), (HEIGHT / 2 - size * i), size / 3);
-            drawCross(graphics, (WIDTH / 2), (HEIGHT / 2 + size * i), size / 3);
-
-//            drawCross(graphics, (WIDTH / 2), HEIGHT / 2, size / 3);
-//            drawCross(graphics, (WIDTH / 2), HEIGHT / 2, size / 3);
-//            drawCross(graphics, (WIDTH / 2), HEIGHT / 2, size / 3);
-//            drawCross(graphics, (WIDTH / 2), HEIGHT / 2, size / 3);
-
-
-//            drawLines(graphics, WIDTH / 3 / i, 0, WIDTH / 3 / i, HEIGHT);
-//            drawLines(graphics, WIDTH - WIDTH / 3 / i, 0, WIDTH - WIDTH / 3 / i, HEIGHT);
-//            drawLines(graphics, 0, HEIGHT / 3 / i, WIDTH, HEIGHT / 3 / i);
-//            drawLines(graphics, 0, HEIGHT - HEIGHT/3 / i, WIDTH, HEIGHT - HEIGHT / 3 / i);
-
-//            drawCross(graphics, WIDTH / 2 + size, HEIGHT / 2, size / 2);
-//            drawCross(graphics, WIDTH / 2, HEIGHT / 2 - size, size / 2);
-//            drawCross(graphics, WIDTH / 2, HEIGHT / 2 + size, size / 2);
-
-            return drawFractal1(graphics, n - 1, i + 1, size / 3);
+    static void drawCross(Graphics graphics, int x, int y, int size) {
+        graphics.drawRect(x + size / 3, y, size / 3, size);
+        graphics.drawRect(x, y + size / 3, size, size / 3);
+        if (size > 1) {
+            drawCross(graphics, x + size / 3, y, size / 3);
+            drawCross(graphics, x, y + size/3, size/3);
+            drawCross(graphics, size /3 + size/3 + x,y + size/3, size / 3 );
+            drawCross(graphics, x + size / 3 ,y + size/3 + size / 3, size / 3 );
         }
     }
 
-    public static void drawLines(Graphics graphics, int x1, int y1, int x2, int y2) {
-        graphics.drawLine(x1, y1, x2, y2);
+    public static void drawSquare(Graphics graphics, int x, int y, int size) {
 
-    }
-
-    public static void drawCross(Graphics graphics, int x, int y, int size) {
-        drawUpperSquare(graphics, x, y, size);
-        drawBottomSquare(graphics, x, y, size);
-        drawLeftSquare(graphics, x, y, size);
-        drawRightSquare(graphics, x, y, size);
-    }
-
-
-    public static void drawUpperSquare(Graphics graphics, int x, int y, int size) {
-        graphics.drawLine(x - size, y - size, x - size, y - size * 3);
-        graphics.drawLine(x - size, y - size * 3, x + size, y - size * 3);
-        graphics.drawLine(x + size, y - size * 3, x + size, y - size);
-        graphics.drawLine(x + size, y - size, x - size, y - size);
-    }
-
-    public static void drawLeftSquare(Graphics graphics, int x, int y, int size) {
-        graphics.drawLine(x - size, y - size, x - size * 3, y - size);
-        graphics.drawLine(x - size * 3, y - size, x - size * 3, y + size);
-        graphics.drawLine(x - size * 3, y + size, x - size, y + size);
-        graphics.drawLine(x - size, y + size, x - size, y - size);
-    }
-
-    public static void drawRightSquare(Graphics graphics, int x, int y, int size) {
-        graphics.drawLine(x + size, y - size, x + size * 3, y - size);
-        graphics.drawLine(x + size * 3, y - size, x + size * 3, y + size);
-        graphics.drawLine(x + size * 3, y + size, x + size, y + size);
-        graphics.drawLine(x + size, y + size, x + size, y - size);
-    }
-
-    public static void drawBottomSquare(Graphics graphics, int x, int y, int size) {
-        graphics.drawLine(x - size, y + size, x - size, y + size * 3);
-        graphics.drawLine(x - size, y + size * 3, x + size, y + size * 3);
-        graphics.drawLine(x + size, y + size * 3, x + size, y + size);
-        graphics.drawLine(x + size, y + size, x - size, y + size);
+        graphics.drawRect(x, y, size, size);
     }
 
     // Don't touch the code below
-    static int WIDTH = 500;
-    static int HEIGHT = 500;
+    static int WIDTH = 300;
+    static int HEIGHT = 300;
 
     public static void main(String[] args) {
         JFrame jFrame = new JFrame("Drawing");
         jFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         ImagePanel panel = new ImagePanel();
         panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        jFrame.setBackground(Color.YELLOW);
+
         jFrame.add(panel);
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
@@ -115,3 +84,4 @@ public class Fractal1 {
         }
     }
 }
+
