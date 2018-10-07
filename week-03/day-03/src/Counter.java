@@ -13,12 +13,11 @@ public class Counter {
         this.initialValue = integer;
     }
 
-    public void add() {
+    public void add(){
         integer++;
     }
 
     public void add(int number) {
-
         integer = integer + number;
     }
 

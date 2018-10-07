@@ -7,29 +7,17 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class Fractal3 {
 
     public static void mainDraw(Graphics graphics) {
-
-
-//        drawTriangle(graphics, WIDTH/2, 0, 150);
-//        drawTriangle(graphics, WIDTH/2, triangleHeight(150), 75);
-//        drawTriangle(graphics, WIDTH/4, 0, 75);
-//        drawTriangle(graphics, WIDTH - WIDTH/4, 0, 75);
-
         drawFractal(graphics, WIDTH/2, 0, 150);
-
-//        drawTriangle(graphics, WIDTH/2, HEIGHT/9, 150);
-//        drawTriangle(graphics, WIDTH/2, HEIGHT/9, 150);
-
-
     }
 
 
-    public static void drawFractal(Graphics graphics, int x, int y, int size) {
+    public static void drawFractal(Graphics graphics, double x, double y, int size) {
         drawTriangle(graphics, x, y, size);
         if (size > 10) {
             System.out.println(triangleHeight(size));
-            drawFractal(graphics, x, (int)(y + triangleHeight(size)), size/2);
-            drawFractal(graphics, (int)(x - size/2), y, size/2);
-            drawFractal(graphics, (int)(x + size/2), y, size/2);
+            drawFractal(graphics, x, (y + triangleHeight(size)), size/2);
+            drawFractal(graphics, (x - size/2), y, size/2);
+            drawFractal(graphics, (x + size/2), y, size/2);
         }
 
     }

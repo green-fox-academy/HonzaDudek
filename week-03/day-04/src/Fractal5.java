@@ -16,8 +16,8 @@ public class Fractal5 {
 //    drawOneHexagon(graphics, WIDTH/2 - 100, HEIGHT/2, 50) ;
 //    drawOneHexagon(graphics, WIDTH/2 + 100, HEIGHT/2, 50) ;
 
-        drawFractal(graphics, WIDTH/2, HEIGHT/2, 200);
-
+      drawFractal(graphics, WIDTH/2, HEIGHT/2, 200);
+//
 
     }
 
