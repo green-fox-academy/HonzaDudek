@@ -9,9 +9,7 @@ public class Sponsor extends Person {
     }
 
     public  Sponsor(String name, int age, String gender, String company) {
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
+        super(name,age,gender);
         this.company = company;
     }
 
