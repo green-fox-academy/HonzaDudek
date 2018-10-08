@@ -1,10 +1,9 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 public class Garden {
     String name;
-    ArrayList<Plants> garden = new ArrayList<Plants>(Arrays.asList());
+    ArrayList<Plants> garden = new ArrayList<Plants>();
 
     public Garden() {
     }
