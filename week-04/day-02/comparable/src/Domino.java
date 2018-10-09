@@ -1,4 +1,4 @@
-public class Domino implements Comparable<Domino> {
+public class Domino implements Comparable<Domino>, Printable {
     private final int[] values;
 
     public Domino(int valueA, int valueB) {
@@ -18,4 +18,11 @@ public class Domino implements Comparable<Domino> {
         return toString().compareTo(other.toString());
     }
 
+    @Override
+    public void printAllfields() {
+        for (int i = 0; i < values.length; i++) {
+            System.out.print(values[i] + " " );
+        }
+        System.out.println();
+    }
 }

@@ -22,9 +22,14 @@ public class Dominoes {
 //
 //            }
 //        System.out.println(orderedDominoes);
-
+        System.out.println(dominoes);
         Collections.sort(dominoes);
         System.out.println(dominoes);
+
+        for (Domino d: dominoes
+             ) {
+            d.printAllfields();
+        }
     }
 
     static List<Domino> initializeDominoes() {
