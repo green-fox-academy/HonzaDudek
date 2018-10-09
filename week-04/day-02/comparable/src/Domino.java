@@ -15,7 +15,7 @@ public class Domino implements Comparable<Domino>, Printable {
     }
 
     public int compareTo(Domino other) {
-        return toString().compareTo(other.toString());
+        return this.toString().compareTo(other.toString());
     }
 
     @Override

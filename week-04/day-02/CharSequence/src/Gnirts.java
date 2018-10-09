@@ -12,7 +12,11 @@ public class Gnirts implements CharSequence {
 
     @Override
     public char charAt(int index) {
-        return string.charAt(string.length()-index);
+        if (index == string.length() - 1) {
+            return string.charAt(0);
+        } else {
+            return string.charAt(string.length() - 1 - index);
+        }
     }
 
     @Override
