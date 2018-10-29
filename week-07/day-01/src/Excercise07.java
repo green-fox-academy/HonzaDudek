@@ -9,8 +9,7 @@ public class Excercise07 {
     private static String testString = "HeLlo World!";
 
     public static void main(String[] args) {
-        Map<Character, Integer> frequency = new HashMap<>();
-        frequency = testString.chars()
+        Map<Character, Integer> frequency = testString.chars()
                 .mapToObj(c -> (char)c)
                 .map(Character::toLowerCase)
                 .filter(c -> c != ' ')
