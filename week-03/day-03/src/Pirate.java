@@ -4,9 +4,7 @@ public class Pirate {
     boolean sleep = false;
     String name;
     int rumCount;
-
-
-
+    double damage = 0;
 
     public void drinkSomeRum() {
         rumCount++;
@@ -33,22 +31,25 @@ public class Pirate {
         int dice = 0;
         int pirate1Roll;
         int pirate2Roll;
+        int roundCounter = 0;
 
         // While both pirates are alive...
         while (pirate1.life > 0 || pirate2.life > 0) {
+            roundCounter++;
+            System.out.println("Round " + roundCounter);
 
             // Get value of damage for each pirate
-            double pirate1Damage = Math.random() * (50 - 10);
-            double pirate2Damage = Math.random() * (50 - 10);
+            double pirate1Damage = pirate1.damage();
+            double pirate2Damage = pirate2.damage();
 
             // Get value of each dice roll
-            pirate1Roll = (int) (Math.random() * (6 - 1)) + 1;
-            pirate2Roll = (int) (Math.random() * (6 - 1)) + 1;
+            pirate1Roll = pirate1.diceRoll();
+            pirate2Roll = pirate2.diceRoll();
 
             // If both rolls are the same, re-roll
             while (pirate1Roll == pirate2Roll) {
-                pirate1Roll = (int) (Math.random() * (6 - 1)) + 1;
-                pirate2Roll = (int) (Math.random() * (6 - 1)) + 1;
+                pirate1Roll = pirate1.diceRoll();
+                pirate2Roll = pirate2.diceRoll();
             }
 
             // Comparing the roll value to decide who attacks first
@@ -56,19 +57,19 @@ public class Pirate {
                 pirate2.life -= pirate1Damage;
                 pirate1.life -= pirate2Damage;
                 System.out.println("Pirate 1 attacks first");
-                System.out.println("Pirate 1 does damage for " + pirate1Damage + " / Pirate 2 does damage for " + pirate2Damage);
+                System.out.printf("Pirate 1 does damage for %.2f / Pirate 2 does damage for %.2f\n", pirate1Damage, pirate2Damage);
                 System.out.println("Pirate 1 life = " + pirate1.life + " / Pirate 2 life is " + pirate2.life);
                 System.out.println("=====================");
             } else {
                 pirate1.life -= pirate1Damage;
                 pirate2.life -= pirate2Damage;
                 System.out.println("Pirate 2 attacks first");
-                System.out.println("Pirate 2 does damage for " + pirate1Damage + " / Pirate 2 does damage for " + pirate2Damage);
+                System.out.printf("Pirate 2 does damage for %.2f / Pirate 1 does damage for %.2f\n", pirate2Damage, pirate1Damage);
                 System.out.println("Pirate 1 life = " + pirate1.life + " / Pirate 2 life is " + pirate2.life);
                 System.out.println("=====================");
             }
 
-            // If one of the pirates die, we vreak the loop and end the brawl
+            // If one of the pirates dies, we break the loop and end the brawl
             if (pirate1.life < 0 || pirate2.life < 0) {
                 if (pirate1.life < 0) {
                     System.out.println("Pirate 2 has won the brawl.");
@@ -84,6 +85,13 @@ public class Pirate {
             }
 
         }
+    }
 
+    int diceRoll() {
+        return (int) (Math.random() * (6 - 1)) + 1;
+    }
+
+    double damage() {
+        return Math.random() * (50 - 10);
     }
 }

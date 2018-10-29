@@ -6,8 +6,6 @@ public class Ship {
     List<Pirate> crew = new ArrayList<>();
     Pirate captain = new Pirate();
 
-
-
     public Ship() {
 
     }
