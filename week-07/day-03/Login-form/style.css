@@ -1,0 +1,38 @@
+body {
+	width: 100vw;
+	height: 100vh;
+	background: #EBEBEB;
+	display: flex;
+	align-items: center;
+	align-content: center ;
+	font-family: sans-serif;
+}
+
+form {
+	margin: auto auto;
+	width: 600px;
+	height: 600px;
+	padding: 50px;
+	background: #FFFFFF;
+	display: flex;
+	flex-direction: column;
+}
+
+form p {
+	font-size: 2.5em;
+	font-weight: lighter;
+	text-transform: uppercase;
+	color: grey;
+}
+
+form input {
+	height: 40px;
+}
+
+form input:focus {
+	border: 2px solid green;
+}
+
+form a {
+	align-self: end;
+}
