@@ -8,9 +8,11 @@
     <table>
         <thead th:colspan="2">List of users</thead>
         <tr th:each="user : ${users}">
-            <td th:text="${user.getName()}">
+            <td> <a th:href = "'/show/'+ ${user.getName()}" th:text="${user.getName()}"></a></td>
             <td th:text="${users.indexOf(user)}">
             <td th:text="${user.getAnimalType()}" th:style="${user.isKing()} ? 'color: #ddb00d' : '' "></td>
+            <td th:text="${user.isGood()} ? 'Good guy' : 'Bad guy'">
+            </td>
         </tr>
     </table>
 </body>

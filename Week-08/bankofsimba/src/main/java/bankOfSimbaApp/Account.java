@@ -6,19 +6,21 @@ import java.text.NumberFormat;
 
 public class Account {
     String name;
-    String balance;
+    double balance;
     String animalType;
-    NumberFormat formatter = new DecimalFormat("#0.00");
+    DecimalFormat formatter = new DecimalFormat("0.00");
     boolean isKing;
+    boolean isGood = false;
 
     public Account() {
     }
 
-    public Account(String name, double balance, String animalType) {
+    public Account(String name, double balance, String animalType, String isGood) {
         this.name = name;
-        this.balance = formatter.format(balance) + " Zebra";
+        this.balance = Double.parseDouble(formatter.format(balance));
         this.animalType = animalType;
         this.isKing = false;
+        this.isGood = isGood.equalsIgnoreCase("good");
 
     }
 
@@ -30,11 +32,11 @@ public class Account {
         this.name = name;
     }
 
-    public String getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(String balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
@@ -54,7 +56,26 @@ public class Account {
         isKing = king;
     }
 
+    public boolean isGood() {
+        return isGood;
+    }
+
+    public void setGood(boolean good) {
+        isGood = good;
+    }
+
     public String toString() {
         return this.name + " " + this.balance + " " + this.animalType;
+    }
+
+    public void raiseBalance() {
+        double newBalance = this.balance;
+        if (this.isKing) {
+            newBalance += 100;
+        }
+        else {
+            newBalance += 10;
+        }
+        this.balance = newBalance;
     }
 }

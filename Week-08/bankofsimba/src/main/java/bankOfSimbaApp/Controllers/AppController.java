@@ -12,10 +12,11 @@ import java.util.List;
 @Controller
 public class AppController {
 
+    List users = new Users().getListOfUsers();
 
     @RequestMapping("/users")
     public String showAccountUsers(Model model) {
-        model.addAttribute("users", new Users().getListOfUsers());
+        model.addAttribute("users", users);
         return "users";
     }
 }
