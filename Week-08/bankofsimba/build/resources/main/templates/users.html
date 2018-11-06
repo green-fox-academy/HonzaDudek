@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Application users</title>
+</head>
+<body>
+    <table>
+        <thead th:colspan="2">List of users</thead>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.getName()}">
+            <td th:text="${users.indexOf(user)}">
+            <td th:text="${user.getAnimalType()}" th:style="${user.isKing()} ? 'color: #ddb00d' : '' "></td>
+        </tr>
+    </table>
+</body>
+</html>
