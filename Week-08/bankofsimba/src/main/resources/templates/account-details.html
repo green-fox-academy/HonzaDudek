@@ -2,27 +2,41 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Account Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank of Simba</title>
+    <link type="text/css" rel="stylesheet" th:href="'/style.css'">
 </head>
 <body>
-<table>
-    <th colspan="2" th:text="'Account details  for user ' + ${account.getName()}"></th>
-    <tr>
-        <td>Account owner</td>
-        <td th:text="${account.getName()}">
-    </tr>
-    <tr>
-        <td>Balance</td>
-        <td th:text="${account.getBalance()} + 'Zebra'">
-    </tr>
-    <tr>
-        <td>Animal type</td>
-        <td th:text="${account.getAnimalType()}">
-    </tr>
-</table>
+<header>
+    <img th:src="'/logo.jpg'">
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a th:href="'../../users'">Users</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <table>
+        <tr colspan="2" th:text="'Account details  for user ' + ${account.getName()}"></tr>
+        <tr>
+            <td>Account owner</td>
+            <td th:text="${account.getName()}">
+        </tr>
+        <tr>
+            <td>Balance</td>
+            <td th:text="${account.getBalance()} + ' Zebra'">
+        </tr>
+        <tr>
+            <td>Animal type</td>
+            <td th:text="${account.getAnimalType()}">
+        </tr>
+    </table>
 
-<form method="post" th:action=" ${account.getName()} +'/raiseBalance'">
-    <button type="submit" >Add</button>
-</form>
+    <form method="post" th:action="'/show/'+${account.getName()}+'/raiseBalance'">
+        <button type="submit">Add</button>
+    </form>
+</main>
+
 </body>
 </html>

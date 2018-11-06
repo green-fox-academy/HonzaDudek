@@ -2,18 +2,31 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Application users</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank of Simba</title>
+    <link type="text/css" rel="stylesheet" th:href="'/style.css'">
 </head>
 <body>
-    <table>
-        <thead th:colspan="2">List of users</thead>
-        <tr th:each="user : ${users}">
-            <td> <a th:href = "'/show/'+ ${user.getName()}" th:text="${user.getName()}"></a></td>
-            <td th:text="${users.indexOf(user)}">
-            <td th:text="${user.getAnimalType()}" th:style="${user.isKing()} ? 'color: #ddb00d' : '' "></td>
-            <td th:text="${user.isGood()} ? 'Good guy' : 'Bad guy'">
-            </td>
-        </tr>
-    </table>
+<header>
+    <img th:src="'/logo.jpg'">
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a th:href="'users'">Users</a></li>
+        </ul>
+    </nav>
+</header>
+    <main>
+        <table>
+            <tr th:colspan="2">List of users</tr>
+            <tr th:each="user : ${users}">
+                <td><a th:href="'/show/'+ ${user.getName()}" th:text="${user.getName()}"></a></td>
+                <td th:text="${users.indexOf(user)}">
+                <td th:text="${user.getAnimalType()}" th:style="${user.isKing()} ? 'color: #ddb00d' : '' "></td>
+                <td th:text="${user.isGood()} ? 'Good guy' : 'Bad guy'">
+                </td>
+            </tr>
+        </table>
+    </main>
 </body>
 </html>

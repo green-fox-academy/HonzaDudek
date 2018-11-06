@@ -17,7 +17,7 @@ public class Account {
 
     public Account(String name, double balance, String animalType, String isGood) {
         this.name = name;
-        this.balance = Double.parseDouble(formatter.format(balance));
+        this.balance = balance;
         this.animalType = animalType;
         this.isKing = false;
         this.isGood = isGood.equalsIgnoreCase("good");
@@ -32,8 +32,8 @@ public class Account {
         this.name = name;
     }
 
-    public double getBalance() {
-        return balance;
+    public String getBalance() {
+        return formatter.format(this.balance);
     }
 
     public void setBalance(double balance) {
