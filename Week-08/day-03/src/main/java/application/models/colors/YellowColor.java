@@ -1,4 +1,4 @@
-package application.models;
+package application.models.colors;
 
 public class YellowColor implements MyColor {
 

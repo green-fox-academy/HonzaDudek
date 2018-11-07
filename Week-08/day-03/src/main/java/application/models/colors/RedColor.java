@@ -1,4 +1,4 @@
-package application.models;
+package application.models.colors;
 
 import application.services.Printer;
 import org.springframework.beans.factory.annotation.Autowired;
