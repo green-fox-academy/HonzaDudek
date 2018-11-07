@@ -1,0 +1,42 @@
+nav {
+  width: -webkit-fill-available;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    justify-content: center;
+
+    li {
+      list-style: none;
+      display: inline-flex;
+      width: 100px;
+      height: 50px;
+      align-items: center;
+      margin: 10px;
+    }
+
+    a {
+      display: flex;
+      color: #D3920F;
+      text-decoration: none;
+      background: #6C3F4E;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5em;
+      border-radius: 10px;
+    }
+
+  }
+
+}
+
+@media (min-width: 520px) {
+
+  nav ul {
+    justify-content: flex-end;
+  }
+
+}

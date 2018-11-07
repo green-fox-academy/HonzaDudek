@@ -1,0 +1,26 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+  min-width: 320px;
+}
+
+@media (min-width: 520px) {
+  header {
+    flex-direction: row;
+  }
+}

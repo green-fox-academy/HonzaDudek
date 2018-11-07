@@ -1,0 +1,22 @@
+table {
+  width: 90%;
+  max-width: 750px;
+  border-collapse: collapse;
+
+  tbody {
+      tr:nth-of-type(even) {
+        background: #6C3F4E;
+      }
+      tr:nth-of-type(odd) {
+        background: #D3920F;
+      }
+  }
+}
+
+@media (min-width: 520px) {
+  tr {
+    height: 80px;
+  }
+}
+
+
