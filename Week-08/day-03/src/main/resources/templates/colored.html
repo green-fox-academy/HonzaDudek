@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Useful - Colored</title>
+</head>
+<body th:bgcolor="${service.randomColor()}">
+<div>
+    <ul>
+        <li><a th:text="'Back'" th:href="'/useful'"></a></li>
+    </ul>
+</div>
+</body>
+</html>

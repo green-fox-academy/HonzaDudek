@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Useful - Colored</title>
+</head>
+<body>
+    <div>
+        <form th:action="'/useful/email/validate'">
+            <label for="emailValidation" th:text="'Insert e-mail to validate'"></label>
+            <input type="text" id="emailValidation" name="email">
+            <button type="submit"  th:text="'Validate e-mail'"></button>
+        </form>
+        <p th:text="${service}" th:style="${isValid}? 'color: green' : 'color: red' "></p>
+    </div>
+</body>
+</html>

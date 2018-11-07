@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Useful - Colored</title>
+</head>
+<body>
+<div>
+    <form th:action="'/useful/caesar/decoded'">
+        <label for="caesarEncoderText" th:text="'Message to encode'"></label>
+        <input type="text" id="caesarEncoderText" name="caesarText">
+        <label for="caesarEncoderNumber" th:text="'Number of letters to add'"></label>
+        <input type="text" id="caesarEncoderNumber" name="caesarNumber">
+        <button type="submit"  th:text="'Encode text'"></button>
+    </form>
+    <p th:text="'Encoded text: ' + ${service}"></p>
+</div>
+</body>
+</html>
