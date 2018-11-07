@@ -1,0 +1,32 @@
+body {
+  display: flex;
+  flex-direction: column;
+  @import url('https://fonts.googleapis.com/css?family=Muli:400,700,900');
+  font-family: $font__primary;
+}
+
+header {
+  @extend %flexbox;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-weight: $font__weight--bold;
+}
+
+main {
+  @extend %flexbox;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  min-width: 320px;
+}
+
+@media (min-width: 520px) {
+  header {
+    flex-direction: row;
+  }
+}

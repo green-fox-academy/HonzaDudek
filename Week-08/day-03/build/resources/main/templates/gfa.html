@@ -6,9 +6,16 @@
 </head>
 <body>
 <div>
-    <a th:href="'/'" th:text="'Home'"></a>
+    <header>
+
+        <a th:href="'/'" th:text="'Home'"></a>
+        <p th:text="${numberOFStudents}"></p>
+    </header>
     <ul>
         <li><a th:text="'List all students'" th:href="'/gfa/list'"></a></li>
+        <li><a th:text="'List all students'" th:href="'/gfa/list-from-file'"></a></li>
+        <li><a th:text="'Add student'" th:href="'/gfa/add'"></a></li>
+        <li><a th:text="'Student checker'" th:href="'/gfa/check'"></a></li>
     </ul>
 </div>
 </body>

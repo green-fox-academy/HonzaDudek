@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GFA - student checker</title>
+</head>
+<body>
+<header>
+    <a th:href="'/gfa'" th:text="'Back'"></a>
+    <a th:href="'/'" th:text="'Home'"></a>
+</header>
+<div>
+    <form th:action="'/gfa/check'">
+        <label for="studentNameCheck" th:text="'Check if student is subscribed'"></label>
+        <input type="text" id="studentNameCheck" name="studentNameCheck">
+        <button type="submit"  th:text="'Check student'"></button>
+    </form>
+    <p th:text="${student}? ${student} : ''"></p>
+</div>
+</body>
+</html>

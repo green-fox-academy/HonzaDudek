@@ -17,7 +17,7 @@
         </nav>
     </header>
     <main>
-        <table>
+        <table th:class="'users'">
             <thead>
                 <tr >
                     <td th:colspan="4"  th:text="'List of users'"></td>
@@ -27,7 +27,7 @@
                 <tr th:each="user : ${users}">
                     <td><a th:href="'/show/'+ ${user.getName()}" th:text="${user.getName()}"></a></td>
                     <td th:text="${users.indexOf(user)}">
-                    <td th:text="${user.getAnimalType()}" th:style="${user.isKing()} ? 'color: #ddb00d' : '' "></td>
+                    <td th:text="${user.getAnimalType()}"></td>
                     <td th:text="${user.isGood()} ? 'Good guy' : 'Bad guy'">
                     </td>
                 </tr>

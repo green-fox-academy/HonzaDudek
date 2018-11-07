@@ -1,17 +1,17 @@
 body {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  @import url("https://fonts.googleapis.com/css?family=Muli:400,700,900");
+  font-family: "Muli", sans-serif; }
 
-header {
-  display: flex;
-  flex-direction: column; }
+a {
+  text-decoration: none; }
+
+h1 {
+  font-weight: 900; }
 
 main {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
   width: 100%;
   margin: auto;
   min-width: 320px; }
@@ -19,13 +19,17 @@ main {
 @media (min-width: 520px) {
   header {
     flex-direction: row; } }
+header, main, nav ul, nav ul a {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center; }
+
 nav {
   width: -webkit-fill-available; }
   nav ul {
-    display: flex;
     flex-direction: row;
-    padding: 0;
-    justify-content: center; }
+    padding: 0; }
     nav ul li {
       list-style: none;
       display: inline-flex;
@@ -34,14 +38,11 @@ nav {
       align-items: center;
       margin: 10px; }
     nav ul a {
-      display: flex;
       color: #D3920F;
       text-decoration: none;
       background: #6C3F4E;
       width: 100%;
       height: 100%;
-      justify-content: center;
-      align-items: center;
       font-size: 1.5em;
       border-radius: 10px; }
 
@@ -63,10 +64,52 @@ table {
   width: 90%;
   max-width: 750px;
   border-collapse: collapse; }
+  table thead tr {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.0em; }
+  table tbody tr td:nth-child(n+1) {
+    text-align: center; }
+  table tbody tr td:first-child a {
+    display: inline-flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px; }
+    table tbody tr td:first-child a:nth-child(even), table tbody tr td:first-child a:nth-child(even):visited {
+      background: #D3920F;
+      color: black; }
+    table tbody tr td:first-child a:nth-child(even), table tbody tr td:first-child a:nth-child(even):visited {
+      background: #6C3F4E;
+      color: white; }
+  table tbody tr:first-child td:first-child {
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-radius: 10px 0 0 0; }
+  table tbody tr:first-child td:last-child {
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-radius: 0 10px 0 0; }
   table tbody tr:nth-of-type(even) {
-    background: #6C3F4E; }
+    background: #6C3F4E;
+    color: white; }
+    table tbody tr:nth-of-type(even) a {
+      color: white; }
   table tbody tr:nth-of-type(odd) {
-    background: #D3920F; }
+    background: #D3920F;
+    color: black; }
+    table tbody tr:nth-of-type(odd) a {
+      color: black; }
+  table tbody tr:last-child td:first-child {
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-radius: 0 0 0 10px; }
+  table tbody tr:last-child td:last-child {
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-radius: 0 0 10px 0; }
 
 @media (min-width: 520px) {
   tr {

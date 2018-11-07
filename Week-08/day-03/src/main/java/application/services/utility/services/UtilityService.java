@@ -1,4 +1,4 @@
-package application.services;
+package application.services.utility.services;
 
 import org.springframework.stereotype.Service;
 
@@ -7,9 +7,6 @@ import java.util.Random;
 
 @Service
 public class UtilityService {
-
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
 
     String eMail;
     boolean isValid;
@@ -29,8 +26,6 @@ public class UtilityService {
     }
 
     public String randomColor() {
-
-
         return colors.get(random.nextInt(colors.size()));
     }
 
@@ -38,10 +33,10 @@ public class UtilityService {
         this.eMail = email;
         if (eMail.contains("@") && eMail.contains(".")) {
             this.isValid = true;
-            return ANSI_GREEN + eMail + " is valid";
+            return eMail + " is valid";
         } else {
             this.isValid = false;
-            return ANSI_RED + eMail + " is NOT valid";
+            return eMail + " is NOT valid";
         }
     }
 

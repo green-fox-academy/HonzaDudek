@@ -2,10 +2,9 @@ nav {
   width: -webkit-fill-available;
 
   ul {
-    display: flex;
+    @extend %flexbox;
     flex-direction: row;
     padding: 0;
-    justify-content: center;
 
     li {
       list-style: none;
@@ -17,14 +16,12 @@ nav {
     }
 
     a {
-      display: flex;
-      color: #D3920F;
+      @extend %flexbox;
+      color: $color-secondary;
       text-decoration: none;
-      background: #6C3F4E;
+      background: $color-primary;
       width: 100%;
       height: 100%;
-      justify-content: center;
-      align-items: center;
       font-size: 1.5em;
       border-radius: 10px;
     }

@@ -1,7 +1,7 @@
 package application;
 
 import application.models.colors.MyColor;
-import application.services.Printer;
+import application.services.utility.services.Printer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

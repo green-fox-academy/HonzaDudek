@@ -1,11 +1,10 @@
 package application.controllers;
 
-import application.services.UtilityService;
+import application.services.utility.services.UtilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -15,13 +14,13 @@ public class UtilityController {
     UtilityService service;
 
     @RequestMapping("/useful")
-    public String showUsefulUtilities(Model model) {
+    public String showUsefulUtilities() {
         return "useful";
     }
 
     @RequestMapping("/useful/colored")
     public String colorBackground(Model model) {
-        model.addAttribute("service", service);
+        model.addAttribute("service", service.randomColor());
         return "colored";
     }
 

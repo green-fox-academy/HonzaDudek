@@ -1,4 +1,4 @@
-package application.services;
+package application.services.utility.services;
 
 import org.springframework.stereotype.Service;
 

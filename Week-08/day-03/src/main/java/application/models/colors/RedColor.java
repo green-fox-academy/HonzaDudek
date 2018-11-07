@@ -1,6 +1,6 @@
 package application.models.colors;
 
-import application.services.Printer;
+import application.services.utility.services.Printer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
