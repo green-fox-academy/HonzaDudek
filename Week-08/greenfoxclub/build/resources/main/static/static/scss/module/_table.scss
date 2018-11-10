@@ -1,0 +1,33 @@
+table {
+  width: 75%;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  border-collapse: collapse;
+  thead tr {
+      height: 80px;
+      font-size: $font__size--large;
+      font-weight: $font__weight--bold;
+
+  }
+  tbody tr {
+    height: 80px;
+    td {
+      border-bottom: 2px solid $color__secondary;
+      font-size: $font__size--regular;
+      padding: 15px;
+      .btn {
+        font-size: $font__size--regular;
+        background: $color__primary;
+        color: $color__background;
+        border: 1px solid $color__primary;
+        &:hover {
+          background: $color__background;
+          color: $color__primary;
+          border: 2px solid $color__primary;
+        }
+      }
+    }
+  }
+}

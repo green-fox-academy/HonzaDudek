@@ -8,7 +8,7 @@
 <body>
 <header>
     <div class="container">
-        <img th:src="'/static/images/greenfox.png'" th:alt="'Picture of green fox'" class="logo">
+        <a th:href="'/'" > <img th:src="'/static/images/greenfox.png'" th:alt="'Picture of green fox'" class="logo"></a>
         <nav>
             <ul th:style="${fox}? 'display : flex' : 'display : none'" class="navigation">
                 <li class="nav__item nav__item--active"><a th:href="'/' + ${fox.getName()}" th:text="'Information'"></a></li>
@@ -23,19 +23,17 @@
 <main class="container">
     <h1>Green Fox Club</h1>
     <img th:src="'/static/images/greenfox.png'" th:alt="'Picture of green fox'">
-    <p th:text="${fox}? 'This is Mr.' + ${fox.name} +
+    <p th:text="'This is Mr.' + ${fox.name} +
                         '. Currently living on ' + ${fox.food}+ ' and ' + ${fox.drink} +
-                        '. He knows ' + ${fox.getListOfTricks().size()} + ' tricks.' :
-                        'This is Mr. Fox. Currently living on Pizza and lemonade. He knows 2 tricks.' + ${fox.name} + 'Admin: ' + ${fox.isAdmin()}"></p>
+                        '. He knows ' + ${fox.getListOfTricks().size()} + ' tricks.'"></p>
     <h2 th:text="'Known tricks'"></h2>
-    <p th:text="${fox.getListOfTricks().size() == 0}? ${fox.name} + ' does not know any tricks, go and lean some' : ''"></p>
-    <ul th:each="trick : ${fox.getListOfTricks()}">
-        <li th:text="${trick}"></li>
+    <p th:text="${fox.getListOfTricks().size() == 0}? ${fox.name} + ' does not know any tricks, go and lean some' : ''"
+       th:style="${fox.getListOfTricks().size() == 0}? ${fox.name} + 'display: block' : 'display : none'"></p>
+    <ul class="list__tricks">
+        <li  th:each="trick : ${fox.getListOfTricks()}" th:text="${trick}" class="list__tricks--item"></li>
     </ul>
 
-    <ul th:each="fox : ${foxes}">
-        <li th:text="${fox}"></li>
-    </ul>
+
 </main>
 </body>
 </html>

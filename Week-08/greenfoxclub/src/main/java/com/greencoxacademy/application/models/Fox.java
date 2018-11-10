@@ -17,7 +17,6 @@ public class Fox {
 
     public Fox(String name) {
         this.name = name;
-        this.listOfTricks.add("HTML");
         this.food = "pizza";
         this.drink = "water";
     }
@@ -61,7 +60,7 @@ public class Fox {
         this.listOfTricks = listOfTricks;
     }
 
-    public void setTrick(String trick) {
+    public void addTrick(String trick) {
         this.listOfTricks.add(trick);
     }
 

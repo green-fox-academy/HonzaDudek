@@ -1,7 +1,6 @@
 package com.greencoxacademy.application.components.controllers;
 
 import com.greencoxacademy.application.components.services.FoxServicesImpl;
-import com.greencoxacademy.application.components.services.FoxServicesToFile;
 import com.greencoxacademy.application.models.Fox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,11 +14,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class FoxController {
 
     @Autowired
-    FoxServicesToFile foxesInFile;
+    FoxServicesImpl foxesInFile;
 
     @GetMapping(value = {"/nutritionStore/{name}"})
     public String showNutritionStore(@PathVariable("name") String name, Model model) {
         model.addAttribute("fox", foxesInFile.getFox(name));
+        model.addAttribute("food", foxesInFile.getListOfFood());
+        model.addAttribute("drinks", foxesInFile.getListOfDrinks());
         return "nutritionStore";
     }
 
@@ -28,8 +29,30 @@ public class FoxController {
                                   @RequestParam("drink") String drink,
                                   @PathVariable("name") String name,
                                   Model model) {
-        Fox newFox = new Fox(name);
+        Fox newFox = foxesInFile.getFox(name);
         newFox.setFood(food);
+        newFox.setDrink(drink);
+        foxesInFile.updateFox(foxesInFile.getFox(name), newFox);
+        model.addAttribute("fox", foxesInFile.getFox(name));
+        return "nutritionStore";
+    }
+
+    @PostMapping(value = "/nutritionStore/{name}", params = "food")
+    public String changeNutritionFoodOnly(@RequestParam("food") String food,
+                                  @PathVariable("name") String name,
+                                  Model model) {
+        Fox newFox = foxesInFile.getFox(name);
+        newFox.setFood(food);
+        foxesInFile.updateFox(foxesInFile.getFox(name), newFox);
+        model.addAttribute("fox", foxesInFile.getFox(name));
+        return "nutritionStore";
+    }
+
+    @PostMapping(value = "/nutritionStore/{name}", params = "drink")
+    public String changeNutritionDrinkOnly(@RequestParam("drink") String drink,
+                                           @PathVariable("name") String name,
+                                           Model model) {
+        Fox newFox = foxesInFile.getFox(name);
         newFox.setDrink(drink);
         foxesInFile.updateFox(foxesInFile.getFox(name), newFox);
         model.addAttribute("fox", foxesInFile.getFox(name));
@@ -40,6 +63,8 @@ public class FoxController {
     @GetMapping(value = {"/trickCenter/{name}"})
     public String showTrickCenter(@PathVariable("name") String name, Model model) {
         model.addAttribute("fox", foxesInFile.getFox(name));
+        model.addAttribute("tricks", foxesInFile.getListOfTricks());
+
         return "trickCenter";
     }
 
@@ -48,10 +73,10 @@ public class FoxController {
                                   @PathVariable("name") String name,
                                   Model model) {
         Fox newFox = foxesInFile.getFox(name);
-        newFox.setTrick(trick);
+        newFox.addTrick(trick);
         foxesInFile.updateFox(foxesInFile.getFox(name), newFox);
         model.addAttribute("fox", foxesInFile.getFox(name));
-        model.addAttribute("tricks", foxesInFile.getFox(name).getListOfTricks());
+        model.addAttribute("tricks", foxesInFile.getListOfTricks());
         return "trickCenter";
     }
 

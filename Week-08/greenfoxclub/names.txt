@@ -1,1 +1,4 @@
-Honza,Pizza,Coke,[HTML],false
+Honza,Burger,Water,[Java,           CSS,           HTML,           JavaScript, ],true
+Pepa,Beans,Juice,[],false
+Karel,Sandwich,Lemonade,[HTML],false
+Frante,Sandwich,Coffee,[HTML, CSS],false

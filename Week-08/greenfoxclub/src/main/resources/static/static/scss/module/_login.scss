@@ -2,6 +2,7 @@
   @extend %flexbox;
   max-width: 500px;
   height: 450px;
+  margin: 50px auto;
 
   background: $color__primary;
   color: $color__background;
@@ -16,42 +17,24 @@
     @extend %flexbox;
     flex-direction: column;
 
-label {
-  display: none;
+    label {
+      display: none;
+    }
+  }
 }
 
-    button {
-      height: 50px;
-      width: 150px;
-      margin-top: 10px;
-      background: $color__background;
-      color: $color__primary;
-
-      font-weight: $font__weight--bold;
-      font-size: $font__size--large;
-
-      border-radius: 10px;
-      border: 1px solid $color__primary;
-
-      &:hover {
-        background: $color__primary ;
-        color:$color__background ;
-        border: 1px solid $color__background;
-
-      }
-    }
-
-  }
-
-  input {
-    height: 40px;
-    border: none;
-    background: lightgray;
-    border-bottom: 2px solid $color__background;
+input {
+  height: 40px;
+  margin-bottom: 50px;
+  border: none;
+  background:  #e9e9e9;
+  border-bottom: 2px solid $color__background;
+  font-size: $font__size--large;
+  ::placeholder {
     font-size: $font__size--large;
-    ::placeholder {
-      font-size: $font__size--large;
-      font-weight: $font__weight--bold;
-    }
+    font-weight: $font__weight--bold;
+  }
+  &:active::placeholder {
+    display: none;
   }
 }

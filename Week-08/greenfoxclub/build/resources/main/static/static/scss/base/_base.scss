@@ -1,7 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: $font__primary;
   color: $font__color--primary;
   background: $color__background;
+  font-size: $font__size--regular;
   @extend %flexbox;
   justify-content: flex-start;
   width: 100vw;
@@ -19,7 +24,12 @@ header {
 }
 
 main {
-  display: block;
+  width: 100%;
+  display: flex;
+  height: -webkit-fill-available;
+}
 
+p {
+  font-size: $font__size--regular;
 }
 

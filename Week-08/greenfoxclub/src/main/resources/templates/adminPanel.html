@@ -8,28 +8,30 @@
 </head>
 <body>
 <header>
-    <img th:src="'/static/images/greenfox.png'" th:alt="'Picture of green fox'" class="logo">
-    <nav>
-        <ul th:style="${fox}? 'display : flex' : 'display : none'" class="navigation">
-            <li class="nav__item "><a th:href="'/' + ${fox.getName()}" th:text="'Information'"></a></li>
-            <li class="nav__item nav__item--active" th:style="${fox.isAdmin()}? 'display : flex' : 'display : none'"><a th:href="'/adminPanel/' + ${fox.getName()}" th:text="'Administration'" ></a></li>
-            <li class="nav__item" ><a th:href="'/login'" th:text="'Logout'"></a></li>
-            <li class="nav__item"><a th:href="'/nutritionStore/' + ${fox.getName()}" th:text="'Nutrition Store'"></a></li>
-            <li class="nav__item"><a th:href="'/trickCenter/' + ${fox.getName()}" th:text="'Trick Center'"></a></li>
-        </ul>
-    </nav>
+    <div class="container">
+        <a th:href="'/'" > <img th:src="'/static/images/greenfox.png'" th:alt="'Picture of green fox'" class="logo"></a>
+        <nav>
+            <ul th:style="${fox}? 'display : flex' : 'display : none'" class="navigation">
+                <li class="nav__item"><a th:href="'/' + ${fox.getName()}" th:text="'Information'"></a></li>
+                <li class="nav__item nav__item--active" th:style="${fox.isAdmin()}? 'display : flex' : 'display : none'"><a th:href="'/adminPanel/' + ${fox.getName()}" th:text="'Administration'" ></a></li>
+                <li class="nav__item" ><a th:href="'/login'" th:text="'Logout'"></a></li>
+                <li class="nav__item"><a th:href="'/nutritionStore/' + ${fox.getName()}" th:text="'Nutrition Store'"></a></li>
+                <li class="nav__item"><a th:href="'/trickCenter/'  + ${fox.getName()}" th:text="'Trick Center'"></a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 <main>
-    <table th:class="'users'">
+    <table th:class="'foxes'">
         <thead>
-        <tr >
-            <td th:colspan="4"  th:text="'List of users'"></td>
+        <tr>
+            <td th:colspan="2"  th:text="'List of foxes'"></td>
         </tr>
         </thead>
         <tbody>
         <tr th:each="foxie : ${foxes}">
             <td th:text="${foxie}"></td>
-            <td><a th:href="${foxie.equalsIgnoreCase(fox.getName())}? '' : '/adminPanel/' + ${fox.name} +'/'+ ${foxie}"
+            <td><a class="btn" th:href="${foxie.equalsIgnoreCase(fox.getName())}? '' : '/adminPanel/' + ${fox.name} +'/'+ ${foxie}"
                    th:text="${foxie.equalsIgnoreCase(fox.getName())}? '' : 'delete'"></a>
             </td>
         </tr>

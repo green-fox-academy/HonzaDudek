@@ -1,0 +1,23 @@
+.btn {
+  @extend %flexbox;
+  height: 50px;
+  width: 150px;
+  margin: 20px auto 10px auto;
+  background: $color__background;
+  color: $color__primary;
+  justify-content: center;
+
+  font-weight: $font__weight--bold;
+  font-size: $font__size--large;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  border-radius: 10px;
+  border: 1px solid $color__primary;
+
+  &:hover {
+    background: $color__primary;
+    color: $color__background;
+    border: 1px solid $color__background;
+  }
+}

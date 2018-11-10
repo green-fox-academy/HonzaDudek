@@ -1,22 +1,18 @@
 package com.greencoxacademy.application.components.controllers;
 
 import com.greencoxacademy.application.components.services.FoxServicesImpl;
-import com.greencoxacademy.application.components.services.FoxServicesToFile;
 import com.greencoxacademy.application.models.Fox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 @Controller
 public class MainController {
 
     @Autowired
-    FoxServicesToFile foxesInFile;
+    FoxServicesImpl foxesInFile;
 
     @GetMapping(value = "/{name}", name = "name")
     public String indexLoggedIn(@PathVariable("name") String name, Model model) {
@@ -39,6 +35,8 @@ public class MainController {
     public String logIn(@RequestParam("name") String name, Model model) {
         if (foxesInFile.getFox(name) == null) {
             Fox newFox = new Fox(name);
+            newFox.setFood(foxesInFile.getRandomElement(foxesInFile.getListOfFood()));
+            newFox.setDrink(foxesInFile.getRandomElement(foxesInFile.getListOfDrinks()));
             if (name.equalsIgnoreCase("honza")) {
                 newFox.setAdmin(true);
             }

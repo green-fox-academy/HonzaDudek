@@ -9,10 +9,10 @@
 <body>
 <header>
     <div class="container">
-        <img th:src="'/static/images/greenfox.png'" th:alt="'Picture of green fox'" class="logo">
+        <a th:href="'/'" > <img th:src="'/static/images/greenfox.png'" th:alt="'Picture of green fox'" class="logo"></a>
         <nav>
             <ul th:style="${fox}? 'display : flex' : 'display : none'" class="navigation">
-                <li class="nav__item "><a th:href="'/' + ${fox.getName()}" th:text="'Information'"></a></li>
+                <li class="nav__item"><a th:href="'/' + ${fox.getName()}" th:text="'Information'"></a></li>
                 <li class="nav__item" th:style="${fox.isAdmin()}? 'display : flex' : 'display : none'"><a th:href="'/adminPanel/' + ${fox.getName()}" th:text="'Administration'" ></a></li>
                 <li class="nav__item" ><a th:href="'/login'" th:text="'Logout'"></a></li>
                 <li class="nav__item"><a th:href="'/nutritionStore/' + ${fox.getName()}" th:text="'Nutrition Store'"></a></li>
@@ -23,19 +23,14 @@
 </header>
 <main>
     <form th:method="post" th:action="'/trickCenter/' + ${fox.getName()}">
-        <label for="trickSelection" th:text="'Trick to learn: '"></label>
-        <select id="trickSelection" name="trick">
-            <option th:text="'HTML'"></option>
-            <option th:text="'CSS'"></option>
-            <option th:text="'Java'"></option>
-            <option th:text="'JavaScript'"></option>
-        </select>
-        <button type="submit" th:text="'Change'"></button>
+        <div class="form__row">
+            <label for="trickSelection" th:text="'Trick to learn: '" th:style="'display : none'"></label>
+            <select id="trickSelection" name="trick">
+                <option  th:each="trick : ${tricks}" th:text="${trick}"></option>
+            </select>
+        </div>
+        <button th:class="'btn'" type="submit" th:text="'Change'"></button>
     </form>
-
-    <p th:text="${fox.name}"></p>
-    <p th:each="trick : ${tricks}" th:text="${trick}"></p>
-
 </main>
 </body>
 </html>
