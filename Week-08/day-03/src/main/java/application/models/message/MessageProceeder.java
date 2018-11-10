@@ -1,4 +1,4 @@
-package application.models.message;
+/*package application.models.message;
 
 import application.services.messaging.services.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,3 +20,4 @@ public class MessageProceeder {
         this.messageService = messageService;
     }
 }
+*/

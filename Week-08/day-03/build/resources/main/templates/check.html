@@ -10,7 +10,7 @@
     <a th:href="'/'" th:text="'Home'"></a>
 </header>
 <div>
-    <form th:action="'/gfa/check'">
+    <form th:action="'/gfa/check'" th:method="'POST'">
         <label for="studentNameCheck" th:text="'Check if student is subscribed'"></label>
         <input type="text" id="studentNameCheck" name="studentNameCheck">
         <button type="submit"  th:text="'Check student'"></button>

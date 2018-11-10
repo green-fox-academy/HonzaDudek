@@ -1,0 +1,57 @@
+.container__login {
+  @extend %flexbox;
+  max-width: 500px;
+  height: 450px;
+
+  background: $color__primary;
+  color: $color__background;
+  box-shadow: 2px 2px 2px 0 darkgrey;
+  border-radius: 10px;
+
+  h1 {
+    text-align: center;
+  }
+
+  form {
+    @extend %flexbox;
+    flex-direction: column;
+
+label {
+  display: none;
+}
+
+    button {
+      height: 50px;
+      width: 150px;
+      margin-top: 10px;
+      background: $color__background;
+      color: $color__primary;
+
+      font-weight: $font__weight--bold;
+      font-size: $font__size--large;
+
+      border-radius: 10px;
+      border: 1px solid $color__primary;
+
+      &:hover {
+        background: $color__primary ;
+        color:$color__background ;
+        border: 1px solid $color__background;
+
+      }
+    }
+
+  }
+
+  input {
+    height: 40px;
+    border: none;
+    background: lightgray;
+    border-bottom: 2px solid $color__background;
+    font-size: $font__size--large;
+    ::placeholder {
+      font-size: $font__size--large;
+      font-weight: $font__weight--bold;
+    }
+  }
+}

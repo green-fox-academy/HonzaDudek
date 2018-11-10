@@ -5,6 +5,8 @@ import application.services.gfa.services.StudentServiceToFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -46,12 +48,12 @@ public class GreenFoxController {
         return "add";
     }
 
-    @RequestMapping(value = "/gfa/check")
+    @GetMapping(value = "/gfa/check")
     public String showStudentCheck() {
         return "check";
     }
 
-    @RequestMapping(value = "/gfa/check", params = "studentNameCheck", name = "studentNameCheck")
+    @PostMapping(value = "/gfa/check", params = "studentNameCheck", name = "studentNameCheck")
     public String checkStudent(Model model, @RequestParam(name = "studentNameCheck") String student) {
         model.addAttribute("student", students.findStudent(student));
         return "check";

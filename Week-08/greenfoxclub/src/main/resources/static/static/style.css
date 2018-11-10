@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,700");
+body {
+  font-family: "Poppins", sans-serif;
+  color: black;
+  background: #FFFFFF;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0; }
+
+h1 {
+  font-size: 2.5em; }
+
+header {
+  width: 100%; }
+
+main {
+  display: block; }
+
+body, .container, .container__login, .container__login form, .navigation, .nav__item, .nav__item a {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center; }
+
+.logo {
+  max-width: 150px; }
+
+.container__login {
+  max-width: 500px;
+  height: 450px;
+  background: #3CB878;
+  color: #FFFFFF;
+  box-shadow: 2px 2px 2px 0 darkgrey;
+  border-radius: 10px; }
+  .container__login h1 {
+    text-align: center; }
+  .container__login form {
+    flex-direction: column; }
+    .container__login form label {
+      display: none; }
+    .container__login form button {
+      height: 50px;
+      width: 150px;
+      margin-top: 10px;
+      background: #FFFFFF;
+      color: #3CB878;
+      font-weight: 500;
+      font-size: 1.5em;
+      border-radius: 10px;
+      border: 1px solid #3CB878; }
+      .container__login form button:hover {
+        background: #3CB878;
+        color: #FFFFFF;
+        border: 1px solid #FFFFFF; }
+  .container__login input {
+    height: 40px;
+    border: none;
+    background: lightgray;
+    border-bottom: 2px solid #FFFFFF;
+    font-size: 1.5em; }
+    .container__login input ::placeholder {
+      font-size: 1.5em;
+      font-weight: 500; }
+
+nav {
+  width: 100%; }
+
+.navigation {
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 80px;
+  margin: 0;
+  padding: 0;
+  background: #3CB878;
+  border: 1px solid #3CB878; }
+
+.nav__item {
+  justify-items: center;
+  height: 100%;
+  width: 20%;
+  list-style: none; }
+  .nav__item a {
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 1.5em;
+    font-weight: 500; }
+    .nav__item a:hover {
+      background: #007335;
+      color: #FFFFFF; }
+  .nav__item--active {
+    background: #FFFFFF; }
+    .nav__item--active a {
+      color: #007335; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Green Fox Club | Nutrition Store</title>
+    <link href="/static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+    <body>
+    <header>
+        <div class="container">
+            <img th:src="'/static/images/greenfox.png'" th:alt="'Picture of green fox'" class="logo">
+            <nav>
+                <ul th:style="${fox}? 'display : flex' : 'display : none'" class="navigation">
+                    <li class="nav__item "><a th:href="'/' + ${fox.getName()}" th:text="'Information'"></a></li>
+                    <li class="nav__item" th:style="${fox.isAdmin()}? 'display : flex' : 'display : none'"><a th:href="'/adminPanel/' + ${fox.getName()}" th:text="'Administration'" ></a></li>
+                    <li class="nav__item" ><a th:href="'/login'" th:text="'Logout'"></a></li>
+                    <li class="nav__item nav__item--active"><a th:href="'/nutritionStore/' + ${fox.getName()}" th:text="'Nutrition Store'"></a></li>
+                    <li class="nav__item"><a th:href="'/trickCenter/'  + ${fox.getName()}" th:text="'Trick Center'"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <form th:method="post" th:action="'/nutritionStore/' + ${fox.getName()}">
+            <label for="foodSelection" th:text="'Food'"></label>
+            <select id="foodSelection" name="food">
+                <option th:text="'Pizza'"></option>
+                <option th:text="'Burger'"></option>
+                <option th:text="'Tortilla'"></option>
+                <option th:text="'Nachos'"></option>
+            </select>
+            <label for="drinkSelection" th:text="'Drink'"></label>
+            <select id="drinkSelection" name="drink">
+                <option th:text="'Water'"></option>
+                <option th:text="'Coke'"></option>
+                <option th:text="'Water'"></option>
+                <option th:text="'Coke'"></option>
+            </select>
+            <button type="submit" th:text="'Change'"></button>
+        </form>
+
+        <p th:text="${fox.name}"></p>
+        <p th:text="${fox.food}"></p>
+        <p th:text="${fox.drink}"></p>
+
+        </main>
+    </body>
+</html>

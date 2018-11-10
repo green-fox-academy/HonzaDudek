@@ -5,6 +5,7 @@ nav {
     @extend %flexbox;
     flex-direction: row;
     padding: 0;
+    margin: auto;
 
     li {
       list-style: none;

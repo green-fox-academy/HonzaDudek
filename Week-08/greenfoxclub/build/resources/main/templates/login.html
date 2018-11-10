@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Green Fox Club | Login</title>
+    <link href="/static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<header>
+    <div class="container">
+        <img th:src="'/static/images/greenfox.png'" th:alt="'Picture of green fox'" class="logo">
+    </div>
+</header>
+<main>
+    <div th:class="'container__login'">
+        <h1 th:text="'Welcome to Programmer Fox Clubu!'"></h1>
+        <p th:text="'Please provide a name, so you can associate it with your pet.'"></p>
+        <form th:method="post" th:action="'/login/loggedIn'">
+            <label for="name" th:text="'Name: '"></label>
+            <input type="text" id="name" name="name" th:placeholder="'Name'">
+            <button type="submit" th:text="'GO'"></button>
+        </form>
+    </div>
+</main>
+</body>
+</html>

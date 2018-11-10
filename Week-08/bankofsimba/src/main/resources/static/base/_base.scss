@@ -3,10 +3,13 @@ body {
   flex-direction: column;
   @import url('https://fonts.googleapis.com/css?family=Muli:400,700,900');
   font-family: $font__primary;
+  margin: auto;
 }
 
 header {
   @extend %flexbox;
+  flex-direction: column;
+  height: 20vh;
 }
 
 a {
@@ -15,6 +18,7 @@ a {
 
 h1 {
   font-weight: $font__weight--bold;
+  text-align: center;
 }
 
 main {

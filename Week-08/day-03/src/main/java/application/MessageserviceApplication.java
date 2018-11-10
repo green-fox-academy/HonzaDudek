@@ -1,4 +1,4 @@
-package application;
+/*package application;
 
 import application.models.message.MessageProceeder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +18,7 @@ public class MessageserviceApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        messageProceeder.processMessage("Hi Barba, How are you?", "office@greenfox.com");
+       // messageProceeder.processMessage("Hi Barba, How are you?", "office@greenfox.com");
     }
+}
+*/
