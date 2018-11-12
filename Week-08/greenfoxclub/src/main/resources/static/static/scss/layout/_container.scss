@@ -1,3 +1,11 @@
 .container {
   @extend %flexbox;
 }
+
+.container__profile {
+  flex-direction: row;
+  .picture__profile {
+    height: 150px;
+    width: 150px;
+  }
+}

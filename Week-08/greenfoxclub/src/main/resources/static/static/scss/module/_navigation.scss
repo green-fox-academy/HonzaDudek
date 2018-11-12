@@ -10,8 +10,8 @@ nav {
   height: 80px;
   margin: 0;
   padding: 0;
-  background: $color__primary;
-  border: 1px solid $color__primary;
+  background: $color__white;
+
 }
 
 .nav__item {
@@ -29,20 +29,23 @@ nav {
     height: 100%;
 
     text-decoration: none;
-    color: $color__background;
+    color: $color_text--grey;
     font-size: $font__size--regular;
     font-weight: $font__weight--bold;
 
+    border-bottom: 1px solid $color_borders;
+
     &:hover {
-      background: $color__secondary;
-       color: $color__background;
+      background: $color__white;
+       color: $color__primary;
     }
   }
 
   &--active {
     background: $color__background;
     a {
-      color: $color__secondary;
+      color: $color__primary;
+      border-bottom: 3px solid $color__primary;
     }
   }
 }

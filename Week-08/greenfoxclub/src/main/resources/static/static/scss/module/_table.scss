@@ -14,7 +14,7 @@ table {
   tbody tr {
     height: 80px;
     td {
-      border-bottom: 2px solid $color__secondary;
+      border-bottom: 2px solid $color_borders;
       font-size: $font__size--regular;
       padding: 15px;
       .btn {

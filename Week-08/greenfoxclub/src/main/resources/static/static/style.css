@@ -308,15 +308,15 @@ template {
   box-sizing: border-box; }
 
 body {
-  font-family: "Poppins", sans-serif;
-  color: black;
-  background: #FFFFFF;
-  font-size: 24px;
   justify-content: flex-start;
   width: 100vw;
   height: 100%;
   min-height: 100vh;
-  margin: 0; }
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: black;
+  background: #FFFFFF;
+  font-size: 24px; }
 
 h1 {
   font-size: 34px; }
@@ -327,6 +327,8 @@ header {
 main {
   width: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   height: -webkit-fill-available; }
 
 p {
@@ -339,32 +341,71 @@ body, .container, .container__login, .container__login form, .navigation, .nav__
   align-items: center; }
 
 .logo {
-  max-width: 150px; }
+  height: 105px;
+  width: 105px;
+  border-radius: 50%;
+  border: 1px solid #7E7E7E;
+  background: #FFFFFF; }
+
+.container__profile {
+  flex-direction: row; }
+  .container__profile .picture__profile {
+    height: 150px;
+    width: 150px; }
+
+.login__logo {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  background: #FFFFFF;
+  border: 1px solid #7E7E7E;
+  top: 72px;
+  margin-top: 5%;
+  margin-bottom: -60px;
+  z-index: 100; }
 
 .container__login {
-  max-width: 500px;
-  height: 450px;
-  margin: 50px auto;
-  background: #3CB878;
-  color: #FFFFFF;
+  justify-content: center;
+  width: 80%;
+  min-height: 500px;
+  background: #FFFFFF;
+  color: #7E7E7E;
+  border: 1px solid #7E7E7E;
   box-shadow: 2px 2px 2px 0 darkgrey;
   border-radius: 10px; }
   .container__login h1 {
-    text-align: center; }
+    text-align: center;
+    font-size: 36px; }
   .container__login form {
     flex-direction: column; }
     .container__login form label {
       display: none; }
+    .container__login form button {
+      width: 80%;
+      height: 75px;
+      margin: 20px auto 10px auto;
+      background: #00874c;
+      color: #FFFFFF;
+      justify-content: center;
+      font-weight: 500;
+      font-size: 48px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 18px;
+      border: 1px solid #00874c; }
 
 input {
-  height: 40px;
-  margin-bottom: 50px;
-  border: none;
-  background: #e9e9e9;
-  border-bottom: 2px solid #FFFFFF;
-  font-size: 30px; }
+  width: 80%;
+  height: 75px;
+  padding-left: 20px;
+  margin-bottom: 14px;
+  font-size: 24px;
+  color: #7E7E7E;
+  border: 1px solid;
+  border-radius: 18px;
+  background: white; }
   input ::placeholder {
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 500; }
   input:active::placeholder {
     display: none; }
@@ -379,8 +420,7 @@ nav {
   height: 80px;
   margin: 0;
   padding: 0;
-  background: #3CB878;
-  border: 1px solid #3CB878; }
+  background: #FFFFFF; }
 
 .nav__item {
   justify-items: center;
@@ -392,16 +432,18 @@ nav {
     width: 100%;
     height: 100%;
     text-decoration: none;
-    color: #FFFFFF;
+    color: #7E7E7E;
     font-size: 24px;
-    font-weight: 500; }
+    font-weight: 500;
+    border-bottom: 1px solid #7E7E7E; }
     .nav__item a:hover {
-      background: #007335;
-      color: #FFFFFF; }
+      background: #FFFFFF;
+      color: #3CB878; }
   .nav__item--active {
-    background: #FFFFFF; }
+    background: #E1E2E1; }
     .nav__item--active a {
-      color: #007335; }
+      color: #3CB878;
+      border-bottom: 3px solid #3CB878; }
 
 table {
   width: 75%;
@@ -417,16 +459,16 @@ table {
   table tbody tr {
     height: 80px; }
     table tbody tr td {
-      border-bottom: 2px solid #007335;
+      border-bottom: 2px solid #7E7E7E;
       font-size: 24px;
       padding: 15px; }
       table tbody tr td .btn {
         font-size: 24px;
         background: #3CB878;
-        color: #FFFFFF;
+        color: #E1E2E1;
         border: 1px solid #3CB878; }
         table tbody tr td .btn:hover {
-          background: #FFFFFF;
+          background: #E1E2E1;
           color: #3CB878;
           border: 2px solid #3CB878; }
 
@@ -452,18 +494,18 @@ form {
   height: 50px;
   width: 150px;
   margin: 20px auto 10px auto;
-  background: #FFFFFF;
-  color: #3CB878;
+  background: #00874c;
+  color: #FFFFFF;
   justify-content: center;
   font-weight: 500;
   font-size: 30px;
   text-transform: uppercase;
   text-decoration: none;
   border-radius: 10px;
-  border: 1px solid #3CB878; }
+  border: 1px solid #00874c; }
   .btn:hover {
-    background: #3CB878;
-    color: #FFFFFF;
+    background: #FFFFFF;
+    color: #00874c;
     border: 1px solid #FFFFFF; }
 
 .list__tricks {
@@ -475,14 +517,14 @@ form {
   align-items: center;
   justify-content: center;
   list-style: none;
-  border: 2px solid #007335;
+  border: 2px solid #7E7E7E;
   border-top: none;
   height: 50px; }
   .list__tricks--item:only-child {
-    border-top: 2px solid #007335;
+    border-top: 2px solid #7E7E7E;
     border-radius: 10px; }
   .list__tricks--item:first-child {
-    border-top: 2px solid #007335;
+    border-top: 2px solid #7E7E7E;
     border-radius: 10px 10px 0 0; }
   .list__tricks--item:last-child {
     border-radius: 0 0 10px 10px; }

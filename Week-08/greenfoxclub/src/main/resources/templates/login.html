@@ -6,20 +6,16 @@
     <link href="/static/style.css" rel="stylesheet" type="text/css">
 
 </head>
-<body>
-<header>
-    <div class="container">
-        <img th:src="'/static/images/greenfox.png'" th:alt="'Picture of green fox'" class="logo">
-    </div>
-</header>
+<body th:style="'background : #3CB879'">
 <main>
+    <img th:src="'/static/images/greenfox.png'" th:alt="'Picture of green fox'" class="login__logo">
+
     <div th:class="'container__login'">
-        <h1 th:text="'Welcome to Programmer Fox Clubu!'"></h1>
-        <p th:text="'Please provide a name, so you can associate it with your pet.'"></p>
+        <h1 th:text="'GREEN FOX CLUB'"></h1>
         <form th:method="post" th:action="'/login/loggedIn'">
             <label for="name" th:text="'Name: '"></label>
             <input type="text" id="name" name="name" th:placeholder="'Name'">
-            <button class="btn" type="submit" th:text="'go'"></button>
+            <button class="btn" type="submit" th:text="'login'"></button>
         </form>
     </div>
 </main>

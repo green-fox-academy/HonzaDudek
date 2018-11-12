@@ -3,8 +3,8 @@
   height: 50px;
   width: 150px;
   margin: 20px auto 10px auto;
-  background: $color__background;
-  color: $color__primary;
+  background: $color__primary--darker;
+  color: $color__white;
   justify-content: center;
 
   font-weight: $font__weight--bold;
@@ -13,11 +13,11 @@
   text-decoration: none;
 
   border-radius: 10px;
-  border: 1px solid $color__primary;
+  border: 1px solid $color__primary--darker;
 
   &:hover {
-    background: $color__primary;
-    color: $color__background;
-    border: 1px solid $color__background;
+    background: $color__white;
+    color: $color__primary--darker;
+    border: 1px solid $color__white;
   }
 }
