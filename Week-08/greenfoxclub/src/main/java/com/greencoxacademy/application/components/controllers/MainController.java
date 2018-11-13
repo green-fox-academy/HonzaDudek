@@ -14,7 +14,7 @@ public class MainController {
     @Autowired
     FoxServicesImpl foxesInFile;
 
-    @GetMapping(value = "/{name}", name = "name")
+    @GetMapping(value = "/{name}")
     public String indexLoggedIn(@PathVariable("name") String name, Model model) {
         model.addAttribute("foxes", foxesInFile.listAll());
         model.addAttribute("fox", foxesInFile.getFox(name));
@@ -32,7 +32,7 @@ public class MainController {
     }
 
     @PostMapping(value = "/login/loggedIn")
-    public String logIn(@RequestParam("name") String name, Model model) {
+    public String logIn(@RequestParam("porky") String name, Model model) {
         if (foxesInFile.getFox(name) == null) {
             Fox newFox = new Fox(name);
             newFox.setFood(foxesInFile.getRandomElement(foxesInFile.getListOfFood()));

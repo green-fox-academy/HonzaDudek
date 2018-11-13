@@ -1,3 +1,23 @@
 .container {
   @extend %flexbox;
 }
+
+.container__profile {
+  @extend %flexbox;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin: 25px auto;
+  .picture__profile {
+    height: 150px;
+    width: 150px;
+    border: 1px solid $color_borders;
+    border-radius: 50%;
+    margin-right: 10%;
+  }
+  p {
+    font-size: 48px;
+    font-weight: $font__weight--bold;
+    color: $color__primary;
+  }
+}

@@ -21,8 +21,10 @@
     </div>
 </header>
 <main class="container">
-    <h1>Green Fox Club</h1>
-    <img th:src="'/static/images/greenfox.png'" th:alt="'Picture of green fox'">
+    <div class="container__profile">
+        <img th:src="'/static/images/greenfox.png'" th:alt="'Profile picture'" class="picture__profile">
+        <p th:text="${fox.name}"></p>
+    </div>
     <p th:text="'This is Mr.' + ${fox.name} +
                         '. Currently living on ' + ${fox.food}+ ' and ' + ${fox.drink} +
                         '. He knows ' + ${fox.getListOfTricks().size()} + ' tricks.'"></p>

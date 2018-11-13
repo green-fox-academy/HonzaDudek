@@ -334,18 +334,35 @@ main {
 p {
   font-size: 24px; }
 
-body, .container, .container__login, .container__login form, .navigation, .nav__item, .nav__item a, form, .btn {
+body, .container, .container__profile, .container__login, .container__login form, .navigation, .nav__item, .nav__item a, form, .btn {
   display: flex;
   flex-direction: column;
   align-content: center;
   align-items: center; }
 
 .logo {
-  height: 105px;
-  width: 105px;
+  height: 150px;
+  width: 150px;
+  margin: 25px auto;
   border-radius: 50%;
   border: 1px solid #7E7E7E;
   background: #FFFFFF; }
+
+.container__profile {
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin: 25px auto; }
+  .container__profile .picture__profile {
+    height: 150px;
+    width: 150px;
+    border: 1px solid #7E7E7E;
+    border-radius: 50%;
+    margin-right: 10%; }
+  .container__profile p {
+    font-size: 48px;
+    font-weight: 500;
+    color: #3CB878; }
 
 .login__logo {
   border-radius: 50%;
