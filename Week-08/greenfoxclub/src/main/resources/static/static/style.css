@@ -329,10 +329,15 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: -webkit-fill-available; }
+  height: 100vh; }
 
 p {
-  font-size: 24px; }
+  font-size: 16px;
+  text-align: center; }
+
+svg {
+  height: 16px;
+  width: 16px; }
 
 body, .container, .container__profile, .container__login, .container__login form, .navigation, .nav__item, .nav__item a, form, .btn {
   display: flex;
@@ -341,8 +346,8 @@ body, .container, .container__profile, .container__login, .container__login form
   align-items: center; }
 
 .logo {
-  height: 150px;
-  width: 150px;
+  height: 105px;
+  width: 105px;
   margin: 25px auto;
   border-radius: 50%;
   border: 1px solid #7E7E7E;
@@ -352,10 +357,10 @@ body, .container, .container__profile, .container__login, .container__login form
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  margin: 25px auto; }
+  margin: 25px auto 0 auto; }
   .container__profile .picture__profile {
-    height: 150px;
-    width: 150px;
+    height: 105px;
+    width: 105px;
     border: 1px solid #7E7E7E;
     border-radius: 50%;
     margin-right: 10%; }
@@ -366,19 +371,18 @@ body, .container, .container__profile, .container__login, .container__login form
 
 .login__logo {
   border-radius: 50%;
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   background: #FFFFFF;
   border: 1px solid #7E7E7E;
-  top: 72px;
-  margin-top: 5%;
-  margin-bottom: -60px;
+  margin-top: 60px;
+  margin-bottom: -40px;
   z-index: 100; }
 
 .container__login {
   justify-content: center;
   width: 80%;
-  min-height: 500px;
+  height: 50%;
   background: #FFFFFF;
   color: #7E7E7E;
   border: 1px solid #7E7E7E;
@@ -386,20 +390,20 @@ body, .container, .container__profile, .container__login, .container__login form
   border-radius: 10px; }
   .container__login h1 {
     text-align: center;
-    font-size: 36px; }
+    font-size: 2.0rem; }
   .container__login form {
     flex-direction: column; }
     .container__login form label {
       display: none; }
     .container__login form button {
       width: 80%;
-      height: 75px;
+      height: 50px;
       margin: 20px auto 10px auto;
       background: #00874c;
       color: #FFFFFF;
       justify-content: center;
       font-weight: 500;
-      font-size: 48px;
+      font-size: 24px;
       text-transform: uppercase;
       text-decoration: none;
       border-radius: 18px;
@@ -407,9 +411,8 @@ body, .container, .container__profile, .container__login, .container__login form
 
 input {
   width: 80%;
-  height: 75px;
+  height: 50px;
   padding-left: 20px;
-  margin-bottom: 14px;
   font-size: 24px;
   color: #7E7E7E;
   border: 1px solid;
@@ -444,7 +447,7 @@ nav {
     height: 100%;
     text-decoration: none;
     color: #7E7E7E;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 500;
     border-bottom: 1px solid #7E7E7E; }
     .nav__item a:hover {
@@ -482,6 +485,29 @@ table {
           background: #E1E2E1;
           color: #3CB878;
           border: 2px solid #3CB878; }
+
+.table {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #7E7E7E; }
+  .table__row:first-of-type {
+    border-bottom: 1px solid #7E7E7E; }
+  .table__row {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 10px; }
+    .table__row p {
+      margin: 0;
+      width: 50%; }
+      .table__row p:last-child {
+        border-left: 1px solid #7E7E7E;
+        text-align: center; }
 
 form {
   width: 80%;
@@ -539,5 +565,35 @@ form {
     border-radius: 10px 10px 0 0; }
   .list__tricks--item:last-child {
     border-radius: 0 0 10px 10px; }
+
+.container__stats {
+  display: flex;
+  width: 90%;
+  flex-direction: column; }
+
+.container__stats--row {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-around; }
+  .container__stats--row div {
+    width: 75%; }
+
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  width: 75%;
+  height: 10px; }
+
+progress[value]::-webkit-progress-bar {
+  background-color: #7E7E7E;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }
+
+progress[value]::-webkit-progress-value {
+  background-color: #3CB878;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }
 
 /*# sourceMappingURL=style.css.map */

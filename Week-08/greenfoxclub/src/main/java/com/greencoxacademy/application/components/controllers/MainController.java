@@ -1,5 +1,6 @@
 package com.greencoxacademy.application.components.controllers;
 
+import com.greencoxacademy.application.components.repositories.FoxRepo;
 import com.greencoxacademy.application.components.services.FoxServicesImpl;
 import com.greencoxacademy.application.models.Fox;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +12,19 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class MainController {
 
+    private FoxRepo repo;
+
     @Autowired
     FoxServicesImpl foxesInFile;
 
+    @Autowired
+    public MainController(FoxRepo repo) {
+        this.repo = repo;
+    }
+
     @GetMapping(value = "/{name}")
     public String indexLoggedIn(@PathVariable("name") String name, Model model) {
-        model.addAttribute("foxes", foxesInFile.listAll());
-        model.addAttribute("fox", foxesInFile.getFox(name));
+        model.addAttribute("fox", repo.findFoxByName(name));
         return "index";
     }
 
@@ -33,14 +40,14 @@ public class MainController {
 
     @PostMapping(value = "/login/loggedIn")
     public String logIn(@RequestParam("porky") String name, Model model) {
-        if (foxesInFile.getFox(name) == null) {
+        if (repo.findAll() == null) {
             Fox newFox = new Fox(name);
             newFox.setFood(foxesInFile.getRandomElement(foxesInFile.getListOfFood()));
             newFox.setDrink(foxesInFile.getRandomElement(foxesInFile.getListOfDrinks()));
             if (name.equalsIgnoreCase("honza")) {
                 newFox.setAdmin(true);
             }
-            foxesInFile.add(newFox);
+            repo.save(newFox);
         }
         return "redirect:/" + name;
     }

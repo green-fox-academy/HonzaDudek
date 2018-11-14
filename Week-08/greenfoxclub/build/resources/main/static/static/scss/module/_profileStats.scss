@@ -1,0 +1,16 @@
+.container__stats {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+}
+
+.container__stats--row {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  div {
+    width: 75%;
+  }
+}

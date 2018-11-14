@@ -29,10 +29,16 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: -webkit-fill-available;
+  height: 100vh;
 }
 
 p {
-  font-size: $font__size--regular;
+  font-size: $font__size--small;
+  text-align: center;
+}
+
+svg {
+  height: 16px;
+  width: 16px;
 }
 

@@ -67,7 +67,7 @@ public class FoxController {
 
         return "trickCenter";
     }
-
+/*
     @PostMapping(value = "/trickCenter/{name}", params = "trick")
     public String changeNutrition(@RequestParam("trick") String trick,
                                   @PathVariable("name") String name,
@@ -79,6 +79,7 @@ public class FoxController {
         model.addAttribute("tricks", foxesInFile.getListOfTricks());
         return "trickCenter";
     }
+    */
 
 
     @GetMapping(value = "/adminPanel/{name}", name = "name")

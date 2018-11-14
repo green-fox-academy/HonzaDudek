@@ -31,3 +31,33 @@ table {
     }
   }
 }
+
+
+.table {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 10px 0;
+
+  border-radius: 10px;
+  border: 1px solid $color_borders;
+  &__row:first-of-type {
+    border-bottom: 1px solid $color_borders;
+  }
+  &__row {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 10px;
+    p {
+      margin: 0;
+      width: 50%;
+      &:last-child {
+        border-left: 1px solid $color_borders;
+        text-align: center;
+      }
+    }
+  }
+}

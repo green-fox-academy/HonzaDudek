@@ -21,11 +21,12 @@ public class FoxServicesImpl implements FoxServices {
     private List<String> listOfFood = new ArrayList<>(Arrays.asList("Pizza", "Burger", "Sandwich", "Chocolate", "Beans"));
     private List<String> listOfDrinks = new ArrayList<>(Arrays.asList("Water","Lemonade","Coke","Juice","Coffee" ));
     private List<String> foxesStrings;
-
+/*
     public FoxServicesImpl() {
         createNewFileWithFoxes("names.txt");
         findAll();
     }
+    */
 
     /* Creation and manipulation fo file with Foxes */
 
@@ -55,6 +56,7 @@ public class FoxServicesImpl implements FoxServices {
             e.printStackTrace();
         }
     }
+    /*
 
     public List<Fox> findAll() {
         try {
@@ -69,6 +71,8 @@ public class FoxServicesImpl implements FoxServices {
         return listOfFoxes;
     }
 
+*/
+    /*
     public Fox toFox(String fox) {
         ArrayList<String> foxAttr = new ArrayList<>(Arrays.asList(fox.split(",")));
         Fox newFox = new Fox();
@@ -93,6 +97,7 @@ public class FoxServicesImpl implements FoxServices {
         }
         return newFox;
     }
+    */
 
     /* Creation and manipulation of lists */
 

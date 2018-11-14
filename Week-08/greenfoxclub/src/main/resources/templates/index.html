@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Green Fox Club</title>
     <link href="/static/style.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <header>
@@ -11,14 +12,21 @@
         <a th:href="'/'" > <img th:src="'/static/images/greenfox.png'" th:alt="'Picture of green fox'" class="logo"></a>
         <nav>
             <ul th:style="${fox}? 'display : flex' : 'display : none'" class="navigation">
-                <li class="nav__item nav__item--active"><a th:href="'/' + ${fox.getName()}" th:text="'Information'"></a></li>
+                <li class="nav__item nav__item--active"><a th:href="'/' + ${fox.name}" th:text="'Profile'"></a></li>
                 <li class="nav__item" th:style="${fox.isAdmin()}? 'display : flex' : 'display : none'"><a th:href="'/adminPanel/' + ${fox.getName()}" th:text="'Administration'" ></a></li>
                 <li class="nav__item" ><a th:href="'/login'" th:text="'Logout'"></a></li>
-                <li class="nav__item"><a th:href="'/nutritionStore/' + ${fox.getName()}" th:text="'Nutrition Store'"></a></li>
-                <li class="nav__item"><a th:href="'/trickCenter/'  + ${fox.getName()}" th:text="'Trick Center'"></a></li>
+                <li class="nav__item"><a th:href="'/nutritionStore/' + ${fox.name}" th:text="'Nutrition Store'"></a></li>
+                <li class="nav__item"><a th:href="'/trickCenter/'  + ${fox.name}" th:text="'Trick Center'"></a></li>
             </ul>
         </nav>
     </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="display: none" >
+        <symbol  id = "heart" viewBox="0 0 24 24">
+            <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+        </symbol>
+    </svg>
+
 </header>
 <main class="container">
     <div class="container__profile">
@@ -26,19 +34,51 @@
         <p th:text="${fox.name}"></p>
     </div>
     <p th:text="'This is Mr.' + ${fox.name} +
-                        '. Currently living on ' + ${fox.food}+ ' and ' + ${fox.drink} +
-                        '. He knows ' + ${fox.getListOfTricks().size()} + ' tricks.'"></p>
+                        '. Currently living on ' + ${fox.food}+ ' and ' + ${fox.drink}"></p>
     <div class="container__stats">
-        <p th:text="'Food'"></p>
-        <
+        <div class="container__stats--row">
+            <p th:text="'Food'"></p>
+            <div>
+                <svg>
+                    <use xlink:href="#heart"></use>
+                </svg>
+                    <progress value="22" max="100"></progress>
+                <svg th:height="'20px'" th:width="'20px'">
+                    <use xlink:href="#heart"></use>
+                </svg>
+            </div>
+        </div>
+        <div class="container__stats--row">
+            <p th:text="'Drink'"></p>
+            <div>
+                <svg>
+                    <use xlink:href="#heart"></use>
+                </svg>
+                <progress value="22" max="100"></progress>
+                <svg th:height="'20px'" th:width="'20px'">
+                    <use xlink:href="#heart"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="table">
+        <div class="table__row">
+            <p th:text="'Food'"></p>
+            <p th:text="${fox.getFood()}"></p>
+        </div>
+        <div class="table__row">
+            <p class="table__cell" th:text="'Drink'"></p>
+            <p class="table__cell" th:text="${fox.getDrink()}"></p>
+        </div>
     </div>
 
     <h2 th:text="'Known tricks'"></h2>
-    <p th:text="${fox.getListOfTricks().size() == 0}? ${fox.name} + ' does not know any tricks, go and lean some' : ''"
+   <!-- <p th:text="${fox.getListOfTricks().size() == 0}? ${fox.name} + ' does not know any tricks, go and lean some' : ''"
        th:style="${fox.getListOfTricks().size() == 0}? ${fox.name} + 'display: block' : 'display : none'"></p>
     <ul class="list__tricks">
         <li  th:each="trick : ${fox.getListOfTricks()}" th:text="${trick}" class="list__tricks--item"></li>
     </ul>
+    !-->
 
 
 </main>

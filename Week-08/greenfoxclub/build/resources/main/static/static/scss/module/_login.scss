@@ -1,12 +1,11 @@
 .login__logo {
   border-radius: 50%;
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   background: $color__white;
   border: 1px solid $color_borders;
-  top: 72px;
-  margin-top: 5%;
-  margin-bottom: -60px;
+  margin-top: 60px;
+  margin-bottom: -40px;
   z-index: 100;
 }
 
@@ -14,17 +13,17 @@
   @extend %flexbox;
   justify-content: center;
   width: 80%;
-  min-height: 500px;
+  height: 50%;
 
-  background: $color__white;
-  color: $color_text--grey;
-  border: 1px solid $color_borders;
+  background: #FFFFFF;
+  color: #7E7E7E;
+  border: 1px solid #7E7E7E;
   box-shadow: 2px 2px 2px 0 darkgrey;
   border-radius: 10px;
 
   h1 {
     text-align: center;
-    font-size: 36px;
+    font-size: 2.0rem;
   }
 
   form {
@@ -37,13 +36,13 @@
 
     button {
       width: 80%;
-      height: 75px;
+      height: 50px;
       margin: 20px auto 10px auto;
       background: #00874c;
       color: $color__white;
       justify-content: center;
       font-weight: 500;
-      font-size: 48px;
+      font-size: 24px;
       text-transform: uppercase;
       text-decoration: none;
       border-radius: 18px;
@@ -54,9 +53,8 @@
 
 input {
   width: 80%;
-  height: 75px;
+  height: 50px;
   padding-left: 20px;
-  margin-bottom: 14px;
 
   font-size: 24px;
   color: $color_text--grey;
