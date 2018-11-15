@@ -1,8 +1,10 @@
 package com.greencoxacademy.application.components.controllers;
 
-import com.greencoxacademy.application.components.repositories.FoxRepo;
-import com.greencoxacademy.application.components.services.FoxServicesImpl;
+import com.greencoxacademy.application.components.repositories.*;
+import com.greencoxacademy.application.models.Drink;
+import com.greencoxacademy.application.models.Food;
 import com.greencoxacademy.application.models.Fox;
+import com.greencoxacademy.application.models.Trick;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,24 +14,30 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class MainController {
 
-    private FoxRepo repo;
+    private FoxRepo foxRepo;
+    private FoodRepo foodRepo;
+    private UserRepo usersRepo;
+    private DrinkRepo drinksRepo;
+    private TricksRepo tricksRepo;
+
 
     @Autowired
-    FoxServicesImpl foxesInFile;
-
-    @Autowired
-    public MainController(FoxRepo repo) {
-        this.repo = repo;
+    public MainController(FoxRepo foxRepo, FoodRepo foodRepo, UserRepo usersRepo, DrinkRepo drinksRepo, TricksRepo tricksRepo) {
+        this.foxRepo = foxRepo;
+        this.drinksRepo = drinksRepo;
+        this.foodRepo = foodRepo;
+        this.tricksRepo = tricksRepo;
+        this.usersRepo = usersRepo;
     }
 
     @GetMapping(value = "/{name}")
     public String indexLoggedIn(@PathVariable("name") String name, Model model) {
-        Fox fox = repo.findFoxByName(name);
-
+        Fox fox = foxRepo.findFoxByName(name);
         fox.eating();
         fox.drinking();
-        repo.save(fox);
-        model.addAttribute("fox", repo.findFoxByName(name));
+        foxRepo.save(fox);
+        model.addAttribute("fox", foxRepo.findFoxByName(name));
+        model.addAttribute("tricks", tricksRepo.findAllByFox(foxRepo.findFoxByName(name)));
         model.addAttribute("page", "index");
         return "index";
     }
@@ -46,19 +54,19 @@ public class MainController {
 
     @PostMapping(value = "/login")
     public String logIn(@RequestParam("porky") String name) {
-        if (repo.findFoxByName(name) == null) {
+        if (foxRepo.findFoxByName(name) == null) {
             Fox newFox = new Fox(name);
             if (name.equalsIgnoreCase("honza")) {
                 newFox.setAdmin(true);
             }
-            repo.save(newFox);
+            foxRepo.save(newFox);
         }
         return "redirect:/" + name;
     }
 
     @GetMapping(value = "/admin/deleteAll")
     public String deleteAll() {
-        repo.deleteAll();
+        foxRepo.deleteAll();
         return "login";
     }
 

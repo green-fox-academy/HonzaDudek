@@ -1,6 +1,6 @@
 package com.greencoxacademy.application.components.controllers;
 
-import com.greencoxacademy.application.components.repositories.FoxRepo;
+import com.greencoxacademy.application.components.repositories.*;
 import com.greencoxacademy.application.components.services.FoxServicesImpl;
 import com.greencoxacademy.application.models.Fox;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,20 +14,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class FoxController {
 
-    private FoxRepo repo;
+    private FoxRepo foxRepo;
+    private FoodRepo foodRepo;
+    private UserRepo usersRepo;
+    private DrinkRepo drinksRepo;
+    private TricksRepo tricksRepo;
+
 
     @Autowired
-    FoxServicesImpl foxesInFile;
-
-    @Autowired
-    public FoxController(FoxRepo repo) {
-        this.repo = repo;
+    public FoxController(FoxRepo foxRepo, FoodRepo foodRepo, UserRepo usersRepo, DrinkRepo drinksRepo, TricksRepo tricksRepo) {
+        this.foxRepo = foxRepo;
+        this.drinksRepo = drinksRepo;
+        this.foodRepo = foodRepo;
+        this.tricksRepo = tricksRepo;
+        this.usersRepo = usersRepo;
     }
 
     @GetMapping(value = {"/nutritionStore/{name}"})
     public String showNutritionStore(@PathVariable("name") String name, Model model) {
         model.addAttribute("page", "nutritionStore");
-        model.addAttribute("fox", repo.findFoxByName(name));
+        model.addAttribute("food", foodRepo.findAll());
+        model.addAttribute("drinks", drinksRepo.findAll());
+        model.addAttribute("fox", foxRepo.findFoxByName(name));
         return "nutritionStore";
     }
 
@@ -36,12 +44,12 @@ public class FoxController {
                                   @RequestParam("drink") String drink,
                                   @PathVariable("name") String name,
                                   Model model) {
-        Fox fox = repo.findFoxByName(name);
+        Fox fox = foxRepo.findFoxByName(name);
         fox.setFood(food);
         fox.setDrink(drink);
-        repo.save(fox);
+        foxRepo.save(fox);
         model.addAttribute("page", "nutritionStore");
-        model.addAttribute("fox", repo.findFoxByName(name));
+        model.addAttribute("fox", foxRepo.findFoxByName(name));
         return "nutritionStore";
     }
 
@@ -49,11 +57,11 @@ public class FoxController {
     public String changeNutritionFoodOnly(@RequestParam("food") String food,
                                   @PathVariable("name") String name,
                                   Model model) {
-        Fox fox = repo.findFoxByName(name);
+        Fox fox = foxRepo.findFoxByName(name);
         fox.setFood(food);
-        repo.save(fox);
+        foxRepo.save(fox);
         model.addAttribute("page", "nutritionStore");
-        model.addAttribute("fox", repo.findFoxByName(name));
+        model.addAttribute("fox", foxRepo.findFoxByName(name));
         return "nutritionStore";
     }
 
@@ -61,40 +69,42 @@ public class FoxController {
     public String changeNutritionDrinkOnly(@RequestParam("drink") String drink,
                                            @PathVariable("name") String name,
                                            Model model) {
-        Fox fox = repo.findFoxByName(name);
+        Fox fox = foxRepo.findFoxByName(name);
         fox.setDrink(drink);
-        repo.save(fox);
+        foxRepo.save(fox);
         model.addAttribute("page", "nutritionStore");
-        model.addAttribute("fox",  repo.findFoxByName(name));
+        model.addAttribute("fox",  foxRepo.findFoxByName(name));
         return "nutritionStore";
     }
 
 
     @GetMapping(value = {"/trickCenter/{name}"})
     public String showTrickCenter(@PathVariable("name") String name, Model model) {
-        model.addAttribute("page", "trickCenter");
-        model.addAttribute("fox",  repo.findFoxByName(name));
+        model.addAttribute("page","trickCenter");
+        model.addAttribute("fox", foxRepo.findFoxByName(name));
+        model.addAttribute("tricks", tricksRepo.findAll());
+
         return "trickCenter";
     }
-/*
+
     @PostMapping(value = "/trickCenter/{name}", params = "trick")
     public String changeNutrition(@RequestParam("trick") String trick,
                                   @PathVariable("name") String name,
                                   Model model) {
-        Fox newFox = foxesInFile.getFox(name);
-        newFox.addTrick(trick);
-        foxesInFile.updateFox(foxesInFile.getFox(name), newFox);
-        model.addAttribute("fox", foxesInFile.getFox(name));
-        model.addAttribute("tricks", foxesInFile.getListOfTricks());
+        Fox newFox = foxRepo.findFoxByName(name);
+        newFox.addTrick(tricksRepo.findTrickByTrick(trick));
+        foxRepo.save(newFox);
+        model.addAttribute("fox", foxRepo.findFoxByName(name));
+        model.addAttribute("tricks", tricksRepo.findAll());
         return "trickCenter";
     }
-    */
+
 
 
     @GetMapping(value = "/adminPanel/{name}", name = "name")
     public String showAdministration(@PathVariable("name") String name, Model model) {
-        model.addAttribute("foxes", repo.findAll());
-        model.addAttribute("fox", repo.findFoxByName(name));
+        model.addAttribute("foxes", foxRepo.findAll());
+        model.addAttribute("fox", foxRepo.findFoxByName(name));
         model.addAttribute("page", "trickCenter");
         return "adminPanel";
     }
@@ -103,9 +113,9 @@ public class FoxController {
     public String showAdministration(@PathVariable("name") String admin,
                                      @PathVariable("foxToDelete") String foxToDelete,
                                      Model model) {
-        repo.delete(repo.findFoxByName(foxToDelete));
+        foxRepo.delete(foxRepo.findFoxByName(foxToDelete));
         model.addAttribute("page", "adminPanel");
-        model.addAttribute("fox", repo.findFoxByName(admin));
+        model.addAttribute("fox", foxRepo.findFoxByName(admin));
         return "redirect:/adminPanel/" + admin;
     }
 

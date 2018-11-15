@@ -1,5 +1,7 @@
 package com.greencoxacademy.application.models;
+
 import jdk.vm.ci.meta.Local;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -19,22 +21,37 @@ public class Fox {
     private String name;
     private String food;
 
-    private int foodAmmount = 100;
-    @Temporal(TemporalType.TIMESTAMP) @CreationTimestamp
+    private long foodAmmount = 100;
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
     private Date wasFed;
 
-    private int drinkAmmount = 100;
-    @Temporal(TemporalType.TIMESTAMP) @CreationTimestamp
-    private Date hasDrank ;
+    private long drinkAmmount = 100;
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
+    private Date hasDrank;
 
     private String drink;
     private boolean admin = false;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "User_id")
     private User user;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "food_id" )
+    private Food foods;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "drink_id" )
+    private Food drinks;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "fox_id")
+    private List<Trick> tricks;
+
     public Fox() {
+
     }
 
     public Fox(long id, String name) {
@@ -58,17 +75,21 @@ public class Fox {
     }
 
     public void eating() {
-        int currentFood = this.getFoodAmmount();
-        int ate = wasFed.compareTo(Timestamp.valueOf(LocalDateTime.now())) * 5;
-        System.out.println(ate);
-        this.setFoodAmmount(currentFood + ate);
+        long currentFood = this.getFoodAmmount();
+        if (currentFood != 0) {
+            long ate = (wasFed.getTime() - Timestamp.valueOf(LocalDateTime.now()).getTime()) / 100000 * 5;
+            System.out.println(ate);
+            this.setFoodAmmount(currentFood + ate);
+        }
     }
 
     public void drinking() {
-        int currentDrink = this.getDrinkAmmount();
-        int drank = hasDrank.compareTo(Timestamp.valueOf(LocalDateTime.now())) * 5;
-        System.out.println(drank);
-        this.setDrinkAmmount(currentDrink + drank);
+        long currentDrink = this.getDrinkAmmount();
+        if (currentDrink != 0) {
+            long drank = (wasFed.getTime() - Timestamp.valueOf(LocalDateTime.now()).getTime()) / 100000 * 5;
+            System.out.println(drank);
+            this.setDrinkAmmount(currentDrink + drank);
+        }
     }
 
     public Long getId() {
@@ -112,22 +133,22 @@ public class Fox {
     }
 
     public boolean equals(Object o) {
-        return this.getName().equalsIgnoreCase(((Fox)o).getName());
+        return this.getName().equalsIgnoreCase(((Fox) o).getName());
     }
 
-    public int getFoodAmmount() {
+    public long getFoodAmmount() {
         return foodAmmount;
     }
 
-    public void setFoodAmmount(int foodAmmount) {
+    public void setFoodAmmount(long foodAmmount) {
         this.foodAmmount = foodAmmount;
     }
 
-    public int getDrinkAmmount() {
+    public long getDrinkAmmount() {
         return drinkAmmount;
     }
 
-    public void setDrinkAmmount(int drinkAmmount) {
+    public void setDrinkAmmount(long drinkAmmount) {
         this.drinkAmmount = drinkAmmount;
     }
 
@@ -156,4 +177,31 @@ public class Fox {
     }
 
 
+    public void addTrick(Trick trick) {
+        this.tricks.add(trick);
+    }
+
+    public Food getFoods() {
+        return foods;
+    }
+
+    public void setFoods(Food foods) {
+        this.foods = foods;
+    }
+
+    public Food getDrinks() {
+        return drinks;
+    }
+
+    public void setDrinks(Food drinks) {
+        this.drinks = drinks;
+    }
+
+    public List<Trick> getTricks() {
+        return tricks;
+    }
+
+    public void setTricks(List<Trick> tricks) {
+        this.tricks = tricks;
+    }
 }

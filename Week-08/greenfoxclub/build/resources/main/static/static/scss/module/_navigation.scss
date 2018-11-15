@@ -1,7 +1,7 @@
 nav {
-    overflow: hidden;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch
+  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch
 }
 
 .scroll {
@@ -36,10 +36,13 @@ nav {
   width: 120px;
 
   list-style: none;
-  left: 0;
-  &:first-child:nth-last-child(4),
-  &:first-child:nth-last-child(4) ~ li {
-    left: 120px;
+  &:first-child {
+    margin-left: 120px;
+  }
+
+  li:first-child:nth-last-child(4),
+  li:first-child:nth-last-child(4) ~ li {
+    margin-left: 240px;
   }
 
   a {
@@ -57,7 +60,7 @@ nav {
 
     &:hover {
       background: $color__white;
-       color: $color__primary;
+      color: $color__primary;
     }
 
     &:last-child:after {
@@ -77,4 +80,27 @@ nav {
       border-bottom: 3px solid $color__primary;
     }
   }
+}
+
+@media (min-width: 768px) {
+  nav {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .navigation {
+    display: flex;
+    width: 100%;
+  }
+
+  .nav__item {
+    margin-left: 0;
+    width: 25%;
+  }
+
+  .nav__item:first-child:nth-last-child(4),
+  .nav__item:first-child:nth-last-child(4) ~ li {
+    width: 20%;
+  }
+
 }

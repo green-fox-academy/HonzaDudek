@@ -41,8 +41,11 @@ table {
 
   border-radius: 10px;
   border: 1px solid $color_borders;
+  &__row:nth-of-type(n+1) {
+    border-top: 1px solid $color_borders;
+  }
   &__row:first-of-type {
-    border-bottom: 1px solid $color_borders;
+    border-top: none;
   }
   &__row {
     height: 80px;
@@ -62,3 +65,4 @@ table {
     }
   }
 }
+

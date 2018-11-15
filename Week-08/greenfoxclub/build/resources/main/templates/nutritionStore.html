@@ -16,14 +16,14 @@
                 <label for="foodSelection" th:text="'Food'" th:style="'display : none'"></label>
                 <select id="foodSelection" name="food">
                     <option th:text="'Select food'" disabled selected hidden="hidden"></option>
-                    <option th:each="food: ${food}" th:text="${food}"></option>
+                    <option th:each="foodie: ${food}" th:text="${foodie.getFood()}"></option>
                 </select>
             </div>
             <div class="form__row">
             <label for="drinkSelection" th:text="'Drink'" th:style="'display : none'"></label>
             <select id="drinkSelection" name="drink">
                 <option th:text="'Select drink'" disabled selected hidden="hidden"></option>
-                <option th:each="drink: ${drinks}" th:text="${drink}"></option>
+                <option th:each="drink: ${drinks}" th:text="${drink.getDrink()}"></option>
             </select>
             </div>
             <button class="btn" type="submit" th:text="'Change'"></button>

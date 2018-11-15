@@ -1,18 +1,21 @@
 package com.greencoxacademy.application.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Food {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private String food;
 
+    @OneToOne
+    @JoinColumn(name = "fox_id" )
+    private Fox fox;
+
     public Food() {
+
     }
 
     public Food(String food) {
@@ -25,5 +28,13 @@ public class Food {
 
     public void setFood(String food) {
         this.food = food;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
