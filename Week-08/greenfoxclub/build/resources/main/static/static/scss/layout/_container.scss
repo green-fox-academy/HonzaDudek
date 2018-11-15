@@ -1,5 +1,7 @@
 .container {
   @extend %flexbox;
+  overflow: hidden;
+  width: 100vw;
 }
 
 .container__profile {

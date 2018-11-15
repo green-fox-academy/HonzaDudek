@@ -4,7 +4,6 @@ import com.greencoxacademy.application.models.Fox;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -158,7 +157,7 @@ public class FoxServicesImpl implements FoxServices {
 
     @Override
     public void updateFox(Fox oldFox, Fox newFox) {
-        listOfFoxes.set(listOfFoxes.indexOf(oldFox), newFox );
+        listOfFoxes.set(listOfFoxes.indexOf(oldFox), newFox);
         writeToFile();
     }
 

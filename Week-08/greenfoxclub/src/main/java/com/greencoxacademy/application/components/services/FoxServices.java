@@ -1,5 +1,6 @@
 package com.greencoxacademy.application.components.services;
 import com.greencoxacademy.application.models.Fox;
+
 import java.util.List;
 
 public interface FoxServices {

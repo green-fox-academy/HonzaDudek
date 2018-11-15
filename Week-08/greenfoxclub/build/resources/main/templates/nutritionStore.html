@@ -8,20 +8,8 @@
 
 </head>
     <body>
-    <header>
-        <div class="container">
-            <img th:src="'/static/images/greenfox.png'" th:alt="'Picture of green fox'" class="logo">
-            <nav>
-                <ul th:style="${fox}? 'display : flex' : 'display : none'" class="navigation">
-                    <li class="nav__item"><a th:href="'/' + ${fox.getName()}" th:text="'Information'"></a></li>
-                    <li class="nav__item" th:style="${fox.isAdmin()}? 'display : flex' : 'display : none'"><a th:href="'/adminPanel/' + ${fox.getName()}" th:text="'Administration'" ></a></li>
-                    <li class="nav__item" ><a th:href="'/login'" th:text="'Logout'"></a></li>
-                    <li class="nav__item nav__item--active"><a th:href="'/nutritionStore/' + ${fox.getName()}" th:text="'Nutrition Store'"></a></li>
-                    <li class="nav__item"><a th:href="'/trickCenter/'  + ${fox.getName()}" th:text="'Trick Center'"></a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div th:include="header :: copy (${fox}, ${page})"></div>
+
     <main>
         <form th:method="post" th:action="'/nutritionStore/' + ${fox.getName()}">
             <div class="form__row">

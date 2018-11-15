@@ -57,6 +57,7 @@ table {
       &:last-child {
         border-left: 1px solid $color_borders;
         text-align: center;
+        justify-content: center;
       }
     }
   }

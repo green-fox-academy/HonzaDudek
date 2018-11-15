@@ -24,7 +24,13 @@ public class MainController {
 
     @GetMapping(value = "/{name}")
     public String indexLoggedIn(@PathVariable("name") String name, Model model) {
+        Fox fox = repo.findFoxByName(name);
+
+        fox.eating();
+        fox.drinking();
+        repo.save(fox);
         model.addAttribute("fox", repo.findFoxByName(name));
+        model.addAttribute("page", "index");
         return "index";
     }
 
@@ -38,12 +44,10 @@ public class MainController {
         return "login";
     }
 
-    @PostMapping(value = "/login/loggedIn")
-    public String logIn(@RequestParam("porky") String name, Model model) {
-        if (repo.findAll() == null) {
+    @PostMapping(value = "/login")
+    public String logIn(@RequestParam("porky") String name) {
+        if (repo.findFoxByName(name) == null) {
             Fox newFox = new Fox(name);
-            newFox.setFood(foxesInFile.getRandomElement(foxesInFile.getListOfFood()));
-            newFox.setDrink(foxesInFile.getRandomElement(foxesInFile.getListOfDrinks()));
             if (name.equalsIgnoreCase("honza")) {
                 newFox.setAdmin(true);
             }
@@ -51,6 +55,13 @@ public class MainController {
         }
         return "redirect:/" + name;
     }
+
+    @GetMapping(value = "/admin/deleteAll")
+    public String deleteAll() {
+        repo.deleteAll();
+        return "login";
+    }
+
 
 }
 
