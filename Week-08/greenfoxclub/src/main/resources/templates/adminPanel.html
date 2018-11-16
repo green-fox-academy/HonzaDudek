@@ -10,22 +10,16 @@
 <body>
 <div th:include="header :: copy (${fox}, ${page})"></div>
 <main>
-    <table th:class="'foxes'">
-        <thead>
-        <tr>
-            <td th:colspan="2"  th:text="'List of foxes'"></td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="foxie : ${foxes}">
-            <td th:text="${foxie.name}"></td>
-            <td><a class="btn" th:href="${foxie.equals(fox)}? '' : '/adminPanel/' + ${fox.name} +'/'+ ${foxie}"
-                   th:text="${foxie.equals(fox)}? '' : 'delete'"></a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="table" >
+        <div class="table__row" th:each="foxie : ${foxes}">
+            <p th:text="${foxie.name}"></p>
+            <a class="btn__delete" th:href="${foxie.equals(fox)}? '' : '/adminPanel/' + ${fox.name} +'/'+ ${foxie.name}"
+               th:text="${foxie.equals(fox)}? '' : 'delete'"></a>
+            <a class="btn__update" th:href="${foxie.equals(fox)}? '' : '/adminPanel/' + ${fox.name} +'/update/'+ ${foxie.name}"
+               th:text="${foxie.equals(fox)}? '' : 'update'"></a>
+        </div>
+    </div>
 </main>
-
+<script type="text/javascript" src="/static/js/main.js"></script>
 </body>
 </html>

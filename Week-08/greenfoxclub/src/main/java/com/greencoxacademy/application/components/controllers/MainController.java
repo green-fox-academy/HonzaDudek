@@ -10,6 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Controller
 public class MainController {
@@ -32,12 +35,15 @@ public class MainController {
 
     @GetMapping(value = "/{name}")
     public String indexLoggedIn(@PathVariable("name") String name, Model model) {
+
         Fox fox = foxRepo.findFoxByName(name);
+        Set<Fox> foxSet = new HashSet<>();
+        foxSet.add(fox);
         fox.eating();
         fox.drinking();
         foxRepo.save(fox);
         model.addAttribute("fox", foxRepo.findFoxByName(name));
-        model.addAttribute("tricks", tricksRepo.findAllByFox(foxRepo.findFoxByName(name)));
+        model.addAttribute("tricks", tricksRepo.findAllByFoxes(foxSet));
         model.addAttribute("page", "index");
         return "index";
     }

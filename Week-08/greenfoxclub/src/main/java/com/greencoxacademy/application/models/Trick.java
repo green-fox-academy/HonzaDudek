@@ -1,8 +1,13 @@
 package com.greencoxacademy.application.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
+@Table(name = "trick")
 public class Trick {
 
     @Id
@@ -10,15 +15,20 @@ public class Trick {
     private long id;
     private String trick;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name="fox_id")
-    Fox fox;
+    @ManyToMany(mappedBy = "tricks")
+    private Set<Fox> foxes = new HashSet<>();
 
     public Trick() {
 
     }
 
+    public Set<Fox> getFoxes() {
+        return foxes;
+    }
 
+    public void setFoxes(Set<Fox> foxes) {
+        this.foxes = foxes;
+    }
 
     public Trick(String trick) {
         this.trick = trick;

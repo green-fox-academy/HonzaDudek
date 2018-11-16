@@ -5,11 +5,11 @@
 }
 
 .container__profile {
-  @extend %flexbox;
+  display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
   width: 100%;
-  margin: 25px auto 0 auto;
   .picture__profile {
     height: 105px;
     width: 105px;
@@ -21,5 +21,8 @@
     font-size: 48px;
     font-weight: $font__weight--bold;
     color: $color__primary;
+  }
+  &--mood {
+    width: 90%;
   }
 }

@@ -2,9 +2,10 @@ progress[value] {
   /* Reset the default appearance */
   -webkit-appearance: none;
   appearance: none;
-
   width: 75%;
-  height: 10px;
+  height: 8px;
+
+  align-self: center;
 }
 
 progress[value]::-webkit-progress-bar {

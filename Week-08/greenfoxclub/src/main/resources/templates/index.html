@@ -5,26 +5,28 @@
     <title>Green Fox Club</title>
     <link href="/static/style.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
 <div th:include="header :: copy (${fox}, ${page})"></div>
+
 <main class="container">
     <div class="container__profile">
         <img th:src="'/static/images/greenfox.png'" th:alt="'Profile picture'" class="picture__profile">
         <p th:text="${fox.name}"></p>
     </div>
-    <p th:text="'This is Mr.' + ${fox.getName()} +
+    <p class="container__profile--mood" th:text="'This is Mr.' + ${fox.getName()} +
                         '. Currently living on ' + ${fox.food}+ ' and ' + ${fox.drink}"></p>
     <div class="container__stats">
         <div class="container__stats--row">
             <p th:text="'Food'"></p>
             <div>
                 <svg>
-                    <use xlink:href="#heart"></use>
+                    <use xlink:href="#heart1"></use>
                 </svg>
                 <progress th:value="${fox.getFoodAmmount()}" max="100"></progress>
                 <svg th:height="'20px'" th:width="'20px'">
-                    <use xlink:href="#heart"></use>
+                    <use xlink:href="#heart1"></use>
                 </svg>
             </div>
         </div>
@@ -32,11 +34,11 @@
             <p th:text="'Drink'"></p>
             <div>
                 <svg>
-                    <use xlink:href="#heart"></use>
+                    <use xlink:href="#heart2"></use>
                 </svg>
                 <progress th:value="${fox.getDrinkAmmount()}" max="100"></progress>
                 <svg th:height="'20px'" th:width="'20px'">
-                    <use xlink:href="#heart"></use>
+                    <use xlink:href="#heart2"></use>
                 </svg>
             </div>
         </div>
@@ -60,5 +62,7 @@
         </div>
     </div>
 </main>
+<script type="text/javascript" src="/static/js/main.js"></script>
+
 </body>
 </html>

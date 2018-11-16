@@ -9,7 +9,9 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "fox")
@@ -46,9 +48,11 @@ public class Fox {
     @JoinColumn(name = "drink_id" )
     private Food drinks;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "fox_id")
-    private List<Trick> tricks;
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinTable(name = "fox_trick",
+            joinColumns = @JoinColumn(name = "fox_id"),
+            inverseJoinColumns = @JoinColumn(name = "trick_id"))
+    private Set<Trick> tricks;
 
     public Fox() {
 
@@ -197,11 +201,11 @@ public class Fox {
         this.drinks = drinks;
     }
 
-    public List<Trick> getTricks() {
+    public Set<Trick> getTricks() {
         return tricks;
     }
 
-    public void setTricks(List<Trick> tricks) {
+    public void setTricks(Set<Trick> tricks) {
         this.tricks = tricks;
     }
 }

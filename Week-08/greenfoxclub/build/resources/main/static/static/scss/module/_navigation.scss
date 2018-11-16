@@ -1,7 +1,10 @@
 nav {
   overflow: hidden;
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 .scroll {
@@ -21,6 +24,7 @@ nav {
   @extend %flexbox;
   flex-direction: row;
   justify-content: space-evenly;
+  width: 100%;
   height: 80px;
   margin: 0;
   padding: 0;
@@ -33,17 +37,7 @@ nav {
   flex: 0 0 auto;
   justify-items: center;
   height: 100%;
-  width: 120px;
-
   list-style: none;
-  &:first-child {
-    margin-left: 120px;
-  }
-
-  li:first-child:nth-last-child(4),
-  li:first-child:nth-last-child(4) ~ li {
-    margin-left: 240px;
-  }
 
   a {
     @extend %flexbox;
@@ -63,14 +57,6 @@ nav {
       color: $color__primary;
     }
 
-    &:last-child:after {
-      content: "";
-      width: 120px;
-      height: 1px;
-      position: absolute;
-      left: 100%;
-      top: 0px;
-    }
   }
 
   &--active {
@@ -94,13 +80,8 @@ nav {
   }
 
   .nav__item {
-    margin-left: 0;
-    width: 25%;
-  }
-
-  .nav__item:first-child:nth-last-child(4),
-  .nav__item:first-child:nth-last-child(4) ~ li {
     width: 20%;
   }
 
 }
+

@@ -1,7 +1,6 @@
 package com.greencoxacademy.application.components.controllers;
 
 import com.greencoxacademy.application.components.repositories.*;
-import com.greencoxacademy.application.components.services.FoxServicesImpl;
 import com.greencoxacademy.application.models.Fox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +18,7 @@ public class FoxController {
     private UserRepo usersRepo;
     private DrinkRepo drinksRepo;
     private TricksRepo tricksRepo;
+
 
 
     @Autowired
@@ -81,9 +81,8 @@ public class FoxController {
     @GetMapping(value = {"/trickCenter/{name}"})
     public String showTrickCenter(@PathVariable("name") String name, Model model) {
         model.addAttribute("page","trickCenter");
+        model.addAttribute("tricks",tricksRepo.findAll());
         model.addAttribute("fox", foxRepo.findFoxByName(name));
-        model.addAttribute("tricks", tricksRepo.findAll());
-
         return "trickCenter";
     }
 
