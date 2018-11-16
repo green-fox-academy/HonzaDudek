@@ -25,6 +25,13 @@ h1 {
   font-size: $font__size--x-large;
 }
 
+h2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: $font__size--large;
+  font-weight: $font__weight--bold;
+}
+
 header {
   width: 100%;
 }

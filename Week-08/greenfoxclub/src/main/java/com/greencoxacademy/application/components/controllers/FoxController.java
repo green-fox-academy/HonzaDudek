@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
 @Controller
 public class FoxController {
 
@@ -47,6 +50,8 @@ public class FoxController {
         Fox fox = foxRepo.findFoxByName(name);
         fox.setFood(food);
         fox.setDrink(drink);
+        fox.setWasFed(Timestamp.valueOf(LocalDateTime.now()));
+        fox.setHasDrank(Timestamp.valueOf(LocalDateTime.now()));
         foxRepo.save(fox);
         model.addAttribute("page", "nutritionStore");
         model.addAttribute("fox", foxRepo.findFoxByName(name));
@@ -59,6 +64,7 @@ public class FoxController {
                                   Model model) {
         Fox fox = foxRepo.findFoxByName(name);
         fox.setFood(food);
+        fox.setWasFed(Timestamp.valueOf(LocalDateTime.now()));
         foxRepo.save(fox);
         model.addAttribute("page", "nutritionStore");
         model.addAttribute("fox", foxRepo.findFoxByName(name));
@@ -71,6 +77,7 @@ public class FoxController {
                                            Model model) {
         Fox fox = foxRepo.findFoxByName(name);
         fox.setDrink(drink);
+        fox.setHasDrank(Timestamp.valueOf(LocalDateTime.now()));
         foxRepo.save(fox);
         model.addAttribute("page", "nutritionStore");
         model.addAttribute("fox",  foxRepo.findFoxByName(name));

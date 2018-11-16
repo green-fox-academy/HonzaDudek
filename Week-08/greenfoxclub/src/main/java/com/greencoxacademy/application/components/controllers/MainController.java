@@ -1,10 +1,7 @@
 package com.greencoxacademy.application.components.controllers;
 
 import com.greencoxacademy.application.components.repositories.*;
-import com.greencoxacademy.application.models.Drink;
-import com.greencoxacademy.application.models.Food;
 import com.greencoxacademy.application.models.Fox;
-import com.greencoxacademy.application.models.Trick;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,12 +32,11 @@ public class MainController {
 
     @GetMapping(value = "/{name}")
     public String indexLoggedIn(@PathVariable("name") String name, Model model) {
-
         Fox fox = foxRepo.findFoxByName(name);
         Set<Fox> foxSet = new HashSet<>();
         foxSet.add(fox);
-        fox.eating();
-        fox.drinking();
+        fox.starving();
+        fox.notDrinking();
         foxRepo.save(fox);
         model.addAttribute("fox", foxRepo.findFoxByName(name));
         model.addAttribute("tricks", tricksRepo.findAllByFoxes(foxSet));

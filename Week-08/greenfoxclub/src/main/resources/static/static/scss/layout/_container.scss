@@ -17,12 +17,34 @@
     border-radius: 50%;
     margin-right: 10%;
   }
-  p {
+  &--name {
     font-size: 48px;
     font-weight: $font__weight--bold;
     color: $color__primary;
   }
   &--mood {
+    display: none;
     width: 90%;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: baseline;
+    align-items: center;
+    justify-content: center;
+  }
+  .container__profile {
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+    &--mood {
+      display: block;
+      width: 90%;
+      margin-top: 0;
+    }
   }
 }

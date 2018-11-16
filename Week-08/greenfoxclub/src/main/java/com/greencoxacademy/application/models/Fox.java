@@ -78,18 +78,18 @@ public class Fox {
         this.drink = drink;
     }
 
-    public void eating() {
+    public void starving() {
         long currentFood = this.getFoodAmmount();
-        if (currentFood != 0) {
+        if (currentFood > 0) {
             long ate = (wasFed.getTime() - Timestamp.valueOf(LocalDateTime.now()).getTime()) / 100000 * 5;
             System.out.println(ate);
             this.setFoodAmmount(currentFood + ate);
         }
     }
 
-    public void drinking() {
+    public void notDrinking() {
         long currentDrink = this.getDrinkAmmount();
-        if (currentDrink != 0) {
+        if (currentDrink > 0) {
             long drank = (wasFed.getTime() - Timestamp.valueOf(LocalDateTime.now()).getTime()) / 100000 * 5;
             System.out.println(drank);
             this.setDrinkAmmount(currentDrink + drank);
@@ -161,6 +161,7 @@ public class Fox {
     }
 
     public void setWasFed(Date wasFed) {
+        this.setFoodAmmount(100);
         this.wasFed = wasFed;
     }
 
@@ -169,6 +170,7 @@ public class Fox {
     }
 
     public void setHasDrank(Date hasDrank) {
+        this.setDrinkAmmount(100);
         this.hasDrank = hasDrank;
     }
 

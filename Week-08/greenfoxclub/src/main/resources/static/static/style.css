@@ -325,6 +325,12 @@ body {
 h1 {
   font-size: 34px; }
 
+h2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 30px;
+  font-weight: 500; }
+
 header {
   width: 100%; }
 
@@ -361,7 +367,7 @@ body, .container, .container__login, .container__login form, .navigation, .nav__
 .logo {
   height: 105px;
   width: 105px;
-  margin: 25px auto 0 auto;
+  margin: 15px auto 0 auto;
   border-radius: 50%;
   border: 1px solid #7E7E7E;
   background: #FFFFFF; }
@@ -382,13 +388,31 @@ body, .container, .container__login, .container__login form, .navigation, .nav__
     border: 1px solid #7E7E7E;
     border-radius: 50%;
     margin-right: 10%; }
-  .container__profile p {
+  .container__profile--name {
     font-size: 48px;
     font-weight: 500;
     color: #3CB878; }
   .container__profile--mood {
-    width: 90%; }
+    display: none;
+    width: 90%;
+    margin-top: 0; }
 
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: baseline;
+    align-items: center;
+    justify-content: center; }
+
+  .container__profile {
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap; }
+    .container__profile--mood {
+      display: block;
+      width: 90%;
+      margin-top: 0; } }
 .login__logo {
   border-radius: 50%;
   height: 150px;
@@ -467,7 +491,7 @@ nav {
   flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
-  height: 80px;
+  height: 65px;
   margin: 0;
   padding: 0;
   background: #FFFFFF;
@@ -513,7 +537,8 @@ nav {
   width: 90%;
   margin: 10px 0;
   border-radius: 10px;
-  border: 1px solid #7E7E7E; }
+  border: 1px solid #7E7E7E;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25); }
   .table__row:nth-of-type(n+1) {
     border-top: 1px solid #7E7E7E; }
   .table__row:first-of-type {
@@ -540,7 +565,13 @@ nav {
       .table__row p:last-child {
         border-left: 1px solid #7E7E7E;
         text-align: center;
-        justify-content: center; }
+        justify-content: center;
+        text-transform: capitalize; }
+
+.table__tricks .table__row p:first-child {
+  width: 20%; }
+.table__tricks .table__row p:last-child {
+  width: 80%; }
 
 form {
   width: 80%;
@@ -646,6 +677,9 @@ form {
       width: 20px;
       height: 20px; }
 
+@media (min-width: 768px) {
+  .container__stats {
+    width: 45%; } }
 progress[value] {
   /* Reset the default appearance */
   -webkit-appearance: none;
@@ -654,14 +688,15 @@ progress[value] {
   height: 8px;
   align-self: center; }
 
+progress[value]::-webkit-progress-value,
 progress[value]::-webkit-progress-bar {
-  background-color: #7E7E7E;
   border-radius: 2px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }
 
+progress[value]::-webkit-progress-bar {
+  background-color: #7E7E7E; }
+
 progress[value]::-webkit-progress-value {
-  background-color: #3CB878;
-  border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }
+  background-color: #3CB878; }
 
 /*# sourceMappingURL=style.css.map */

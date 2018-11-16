@@ -13,10 +13,10 @@
 <main class="container">
     <div class="container__profile">
         <img th:src="'/static/images/greenfox.png'" th:alt="'Profile picture'" class="picture__profile">
-        <p th:text="${fox.name}"></p>
-    </div>
-    <p class="container__profile--mood" th:text="'This is Mr.' + ${fox.getName()} +
+        <p class="container__profile--name" th:text="${fox.name}"></p>
+        <p class="container__profile--mood" th:text="'This is Mr.' + ${fox.getName()} +
                         '. Currently living on ' + ${fox.food}+ ' and ' + ${fox.drink}"></p>
+    </div>
     <div class="container__stats">
         <div class="container__stats--row">
             <p th:text="'Food'"></p>
@@ -55,7 +55,7 @@
     </div>
 
     <h2 th:text="'Known tricks'"></h2>
-    <div class="table" >
+    <div class="table table__tricks" >
         <div class="table__row" th:each="trick : ${tricks}">
             <p th:text="${tricks.indexOf(trick)+1}"></p>
             <p th:text="${trick.getTrick()}"></p>
