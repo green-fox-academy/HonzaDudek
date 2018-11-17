@@ -4,11 +4,12 @@ package com.greenfoxacademy.reddit.Models;
 import javax.persistence.*;
 
 @Entity
+@SequenceGenerator(name="REDDIT_SEQ", sequenceName="reddit_sequence")
 @Table(name = "reddits")
 public class Reddit {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "REDDIT_SEQ")
     long id;
     private int votes;
     private String title;

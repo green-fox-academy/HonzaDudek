@@ -5,17 +5,16 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+@SequenceGenerator(name="USER_SEQ", sequenceName="user_sequence")
 @Table(name = "users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQ")
     long id;
 
     private String username;
     private String password;
-
-
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "reddit_id")
