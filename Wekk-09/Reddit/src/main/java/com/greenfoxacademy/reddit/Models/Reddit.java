@@ -1,20 +1,13 @@
 package com.greenfoxacademy.reddit.Models;
-
-
-import org.hibernate.annotations.CreationTimestamp;
-
 import javax.persistence.*;
-import java.sql.Date;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@SequenceGenerator(name="REDDIT_SEQ", sequenceName="reddit_sequence")
 @Table(name = "reddits")
 public class Reddit {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "REDDIT_SEQ")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     private int votes;
     private String title;
@@ -34,6 +27,7 @@ public class Reddit {
         this.title = title;
         this.creator = creator;
         this.url = url;
+        this.votes = 0;
         this.description = description;
     }
 
@@ -51,6 +45,14 @@ public class Reddit {
 
     public void setVotes(int votes) {
         this.votes = votes;
+    }
+
+    public void upvote() {
+        this.votes += 1;
+    }
+
+    public void downvote() {
+        this.votes -= 1;
     }
 
     public String getTitle() {

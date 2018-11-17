@@ -5,12 +5,11 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@SequenceGenerator(name="USER_SEQ", sequenceName="user_sequence")
 @Table(name = "users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQ")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
 
     private String username;

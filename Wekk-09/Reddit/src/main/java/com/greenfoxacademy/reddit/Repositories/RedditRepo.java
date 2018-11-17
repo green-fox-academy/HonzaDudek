@@ -9,4 +9,6 @@ public interface RedditRepo extends CrudRepository<Reddit, Long> {
 
     @Override
     List<Reddit> findAll();
+
+    List<Reddit> findAllByCreator_Id(long id);
 }

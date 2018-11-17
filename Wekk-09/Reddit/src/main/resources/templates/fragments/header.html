@@ -5,8 +5,8 @@
         <div class="container">
             <nav>
                 <ul th:style="${user}? 'display : flex' : 'display : none'" class="navigation scroll" id="navigation">
-                    <li class="nav__item" th:classappend="${page=='index'}? 'nav__item--active' : ''"><a th:href="'/' + ${user.getUsername()}" th:text="'Home'"></a></li>
-                    <li class="nav__item" th:classappend="${page=='profile'}? 'nav__item--active' : ''"><a th:href="'/nutritionStore/' + ${user.getUsername()}" th:utext="'Profile'"></a></li>
+                    <li class="nav__item" th:classappend="${page=='index'}? 'nav__item--active' : ''"><a th:href="'/' + ${user.getId()}" th:text="'Home'"></a></li>
+                    <li class="nav__item" th:classappend="${page=='profile'}? 'nav__item--active' : ''"><a th:href="'/' + ${user.getId()} + '/profile'" th:utext="'Profile'"></a></li>
                     <li class="nav__item"><a th:href="'/login'" th:text="'Logout'"></a></li>
                 </ul>
             </nav>

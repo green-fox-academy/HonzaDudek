@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Controller
@@ -66,8 +65,7 @@ public class MainController {
                 model.addAttribute("page", " ");
                 model.addAttribute("user", usersRepo.findByUsername(username));
                 model.addAttribute("reddits", redditsRepo.findAll());
-                String id = usersRepo.findByUsername(username).getIdString();
-                return "redirect:/" + id;
+                return "redirect:/" +  usersRepo.findByUsername(username).getId();
             } else {
                 return "login";
             }
@@ -97,11 +95,23 @@ public class MainController {
         return "redirect:/" + id;
     }
 
+    @GetMapping(value = "/{id}/profile")
+    public String profilePage(@PathVariable(name = "id") long id,
+                           Model model) {
+        model.addAttribute("user", usersRepo.findById(id));
+        model.addAttribute("page", "index");
+        model.addAttribute("reddits", redditsRepo.findAllByCreator_Id(id));
+        return "index";
+    }
+
+
     @GetMapping(value = "/admin/deleteAll")
     public String deleteAll() {
         usersRepo.deleteAll();
         redditsRepo.deleteAll();
         return "createProfile";
     }
+
+
 
 }
