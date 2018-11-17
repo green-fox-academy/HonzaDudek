@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:include="'/fragments/head.html' :: head (${page})"></div>
 <body>
+    <form>
+        <label th:for="'username'" th:text="'Username'">        </label>
+        <input th:type="'text'" th:placeholder="'username'" th:id="'username'" th:name="'username'">
 
+        <label th:for="'password'" th:text="'Password'">        </label>
+        <input th:type="'password'" th:placeholder="'password'" th:id="'password'" th:name="'password'">
+
+        <input th:type="'submit'">
+    </form>
+
+    <a th:href="'/createAccount'" th:text="'Create account'"></a>
 </body>
 </html>
