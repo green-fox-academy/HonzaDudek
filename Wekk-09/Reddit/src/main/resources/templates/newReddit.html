@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:include="'/fragments/head.html' :: head (${page})"></div>
+<body>
+<div th:include="'/fragments/header.html' :: header (${user},${page})"></div>
+<main>
+    <form th:action="'/' + ${user.getId()} + '/newReddit'" th:method="post">
+        <label th:for="'title'" th:text="'Title'">        </label>
+        <input th:type="'text'" th:placeholder="'title'" th:id="'title'" th:name="'title'">
+
+        <label th:for="'url'" th:text="'Url'">        </label>
+        <input th:type="'url'" th:placeholder="'url'" th:id="'url'" th:name="'url'">
+
+        <label th:for="'description'" th:text="'Description'">        </label>
+        <input th:type="'description'" th:placeholder="'Description'" th:id="'description'" th:name="'description'">
+
+        <input th:type="'submit'">
+    </form>
+</main>
+<div th:include="'/fragments/footer.html' :: footer (${user},${page})"></div>
+</body>
+</html>

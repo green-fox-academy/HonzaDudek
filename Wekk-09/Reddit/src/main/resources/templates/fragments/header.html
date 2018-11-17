@@ -3,11 +3,10 @@
 <div th:fragment="header (user, page)">
     <header>
         <div class="container">
-            <a th:href="'/'" > <img th:src="'/static/images/greenfox.png'" th:alt="'Picture of green fox'" class="logo"></a>
             <nav>
                 <ul th:style="${user}? 'display : flex' : 'display : none'" class="navigation scroll" id="navigation">
-                    <li class="nav__item" th:classappend="${page=='index'}? 'nav__item--active' : ''"><a th:href="'/' + ${user.name}" th:text="'Home'"></a></li>
-                    <li class="nav__item" th:classappend="${page=='profile'}? 'nav__item--active' : ''"><a th:href="'/nutritionStore/' + ${user.name}" th:utext="'Profile'"></a></li>
+                    <li class="nav__item" th:classappend="${page=='index'}? 'nav__item--active' : ''"><a th:href="'/' + ${user.getUsername()}" th:text="'Home'"></a></li>
+                    <li class="nav__item" th:classappend="${page=='profile'}? 'nav__item--active' : ''"><a th:href="'/nutritionStore/' + ${user.getUsername()}" th:utext="'Profile'"></a></li>
                     <li class="nav__item"><a th:href="'/login'" th:text="'Logout'"></a></li>
                 </ul>
             </nav>

@@ -32,6 +32,13 @@ public class User {
         return id;
     }
 
+    public String getIdString() {
+        Long id = this.id;
+        String idString = id.toString();
+        return idString;
+    }
+
+
     public void setId(long id) {
         this.id = id;
     }
