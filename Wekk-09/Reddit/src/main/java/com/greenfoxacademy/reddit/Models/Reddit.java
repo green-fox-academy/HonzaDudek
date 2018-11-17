@@ -1,10 +1,60 @@
 package com.greenfoxacademy.reddit.Models;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "reddits")
 public class Reddit {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    long id;
+    private int votes;
+    private String title;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private User creator;
 
+    public Reddit() {
+    }
+
+    public Reddit(int votes, String title, User creator) {
+        this.votes = votes;
+        this.title = title;
+        this.creator = creator;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getVotes() {
+        return votes;
+    }
+
+    public void setVotes(int votes) {
+        this.votes = votes;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public User getCreator() {
+        return creator;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
+    }
 }
