@@ -1,19 +1,28 @@
 package com.greenfoxacademy.frontend.Controllers;
 
 import com.greenfoxacademy.frontend.Models.*;
-import org.springframework.data.repository.query.Param;
+import com.greenfoxacademy.frontend.Repositories.LogRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.Objects;
-import java.util.SplittableRandom;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
+
+    LogRepo logRepo;
+
+    @Autowired
+    public RestController(LogRepo logRepo) {
+        this.logRepo = logRepo;
+    }
+
     @GetMapping(value = "/doubling")
     public Doubling doubling(@RequestParam(value = "input", required = false) Integer input) {
         if (input != null) {
+            logRepo.save(new Log(LocalDateTime.now(), "/doubling", String.valueOf(input)));
             return new Doubling(input);
         } else {
             return new Doubling();
@@ -59,4 +68,6 @@ public class RestController {
         }
         return map;
     }
+
+    @GetMapping(value = "/log")
 }
