@@ -5,6 +5,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Objects;
+import java.util.SplittableRandom;
+
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
     @GetMapping(value = "/doubling")
@@ -34,7 +38,7 @@ public class RestController {
 
     @GetMapping(value = "/appenda/{appendable}")
     public Appender appenda(@PathVariable("appendable") String append) throws ResourceNotFoundException {
-            return new Appender(append);
+        return new Appender(append);
     }
 
     @PostMapping(value = "/dountil/{action}")
@@ -44,28 +48,15 @@ public class RestController {
     }
 
     @PostMapping(value = "/arrays")
-    public ArrayHandler arrays(@RequestBody ArrayHandler array) {
+    public HashMap<String, Object> arrays(@RequestBody ArrayHandler array) {
+        HashMap<String, Object> map = new HashMap<>();
         if (array.getWhat().equalsIgnoreCase("sum")) {
-            int result = 0;
-            for (int i = 0; i < array.getNumbers().length ; i++) {
-                result += array.getNumbers()[i];
-                array.setResult(result);
-            }
-            return array;
+            map.put("result", array.arraySum());
         } else if (array.getWhat().equalsIgnoreCase("multiply")) {
-            int result = 1;
-            for (int i = 0; i < array.getNumbers().length ; i++) {
-                result *= array.getNumbers()[i];
-                array.setResult(result);
-            }
-            return array;
+            map.put("result", array.arrayMultiply());
         } else if (array.getWhat().equalsIgnoreCase("double")) {
-            for (int i = 0; i < array.getNumbers().length; i++) {
-                array.getNumbers()[i] *= 2;
-            }
-            return array;
-        } else {
-            return array;
+            map.put("numbers", array.arrayDouble());
         }
+        return map;
     }
 }

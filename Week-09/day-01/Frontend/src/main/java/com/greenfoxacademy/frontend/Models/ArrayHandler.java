@@ -1,7 +1,7 @@
 package com.greenfoxacademy.frontend.Models;
 
 public class ArrayHandler {
-    int result;
+    Integer result;
     String what;
     int[] numbers;
     String error = "error";
@@ -15,11 +15,36 @@ public class ArrayHandler {
         this.numbers = numbers;
     }
 
-    public int getResult() {
+    public int arraySum() {
+        int result = 0;
+        for (int i = 0; i < this.getNumbers().length ; i++) {
+            result += this.getNumbers()[i];
+            this.setResult(result);
+        }
         return result;
     }
 
-    public void setResult(int result) {
+    public int arrayMultiply() {
+        int result = 1;
+        for (int i = 0; i < this.getNumbers().length ; i++) {
+            result *= this.getNumbers()[i];
+            this.setResult(result);
+        }
+        return result;
+    }
+
+    public int[] arrayDouble() {
+        for (int i = 0; i < this.getNumbers().length; i++) {
+            this.getNumbers()[i] *= 2;
+        }
+        return this.getNumbers();
+    }
+
+    public Integer getResult() {
+        return result;
+    }
+
+    public void setResult(Integer result) {
         this.result = result;
     }
 
