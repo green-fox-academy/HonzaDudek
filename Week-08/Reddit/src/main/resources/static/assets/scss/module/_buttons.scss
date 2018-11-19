@@ -1,0 +1,51 @@
+.btn {
+  @extend %flexbox;
+  height: 50px;
+  width: 150px;
+  margin: 20px auto 10px auto;
+  background: $color__primary--darker;
+  color: $color__white;
+  justify-content: center;
+
+  font-weight: $font__weight--bold;
+  font-size: $font__size--large;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  border-radius: 10px;
+  border: 1px solid $color__primary--darker;
+
+  &:hover {
+    background: $color__white;
+    color: $color__primary--darker;
+    border: 1px solid $color__white;
+  }
+}
+
+.btn {
+  &__update,
+  &__delete {
+    display: flex;
+    align-items: center;
+    height: 80%;
+    width: 80px;
+    margin: 0 5px;
+    color: #FFFFFF;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 1px solid transparent;
+  }
+
+  &__update {
+    background: blue;
+  }
+
+  &__delete {
+    background: red;
+  }
+
+}

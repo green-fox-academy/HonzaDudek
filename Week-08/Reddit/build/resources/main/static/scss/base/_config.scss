@@ -1,0 +1,19 @@
+// ======== Basic colors  ======== //
+$color__background :  #dae0e6;
+$color__accent : #0079d3;
+$colot__secondery : #0060a8;
+$color__white : #FFFFFF;
+
+// ======== Fonts  ======== //
+@import url('https://fonts.googleapis.com/css?family=Muli:400,600,800,900&subset=latin-ext');
+$font__family : 'Muli', sans-serif;
+
+$font__weight--thin : 400;
+$font__weight--regular : 600;
+$font__weight--bold : 800;
+$font__weight--x-bold : 900;
+
+$font__size--small : 0.8rem;
+$font__size--regular : 1.0rem;
+$font__size--large : 1.2rem;
+$font__size--x-large : 1.5rem;

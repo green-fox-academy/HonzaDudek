@@ -1,0 +1,42 @@
+.container__stats {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+}
+
+.container__stats--row {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px 0;
+
+  p {
+    font-weight: $font__weight--bold;
+    color: $color__primary;
+    margin: 0;
+    width: 50%;
+  }
+
+  div {
+    width: 75%;
+    max-width: 500px;
+    svg {
+      align-self: center;
+    }
+    svg:first-child {
+      width: 16px;
+      height: 16px;
+    }
+    svg:last-child {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@media (min-width: 768px ) {
+  .container__stats {
+    width: 45%;
+  }
+}

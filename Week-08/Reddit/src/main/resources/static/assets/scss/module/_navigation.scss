@@ -1,0 +1,87 @@
+nav {
+  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.scroll {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.navigation {
+  @extend %flexbox;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 65px;
+  margin: 0;
+  padding: 0;
+  background: #FFFFFF;
+  position: relative;
+}
+
+.nav__item {
+  @extend %flexbox;
+  flex: 0 0 auto;
+  justify-items: center;
+  height: 100%;
+  list-style: none;
+
+  a {
+    @extend %flexbox;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    text-decoration: none;
+    color: $color_text--grey;
+    font-size: $font__size--small;
+    font-weight: $font__weight--bold;
+
+    border-bottom: 1px solid $color_borders;
+
+    &:hover {
+      background: $color__white;
+      color: $color__primary;
+    }
+
+  }
+
+  &--active {
+    background: $color__background;
+    a {
+      color: $color__primary;
+      border-bottom: 3px solid $color__primary;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  nav {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .navigation {
+    display: flex;
+    width: 100%;
+  }
+
+  .nav__item {
+    width: 20%;
+  }
+
+}
+

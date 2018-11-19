@@ -1,0 +1,30 @@
+
+// Typography //
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700');
+$font__primary : 'Poppins', sans-serif;;
+$font__color--primary : black;
+$font__color--secondary : white;
+
+$font__size--small : 16px;
+$font__size--regular : 24px;
+$font__size--large : 30px;
+$font__size--x-large : 34px;
+
+$font__weight--thin : 300;
+$font__weight--regular : 400;
+$font__weight--bold : 500;
+$font__weight--x-bold : 700;
+
+
+// Colors //
+$color__primary--lighter : #73eba7;
+$color__primary : #3CB878;
+$color__primary--darker: #00874c;
+
+$color__background : #E1E2E1;
+
+$color_borders :  #7E7E7E;
+
+$color_text--grey :  #7E7E7E;
+$color__white : #FFFFFF;

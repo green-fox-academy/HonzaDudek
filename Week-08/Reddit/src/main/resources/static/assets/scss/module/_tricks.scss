@@ -1,0 +1,26 @@
+.list__tricks {
+  width: 50%;
+}
+
+
+.list__tricks--item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  border: 2px solid $color_borders;
+  border-top: none;
+  height: 50px;
+  &:only-child {
+    border-top: 2px solid $color_borders;
+    border-radius: 10px;
+  }
+  &:first-child {
+    border-top: 2px solid $color_borders;
+    border-radius: 10px 10px 0 0;
+  }
+  &:last-child {
+    border-radius: 0 0 10px 10px;
+  }
+}

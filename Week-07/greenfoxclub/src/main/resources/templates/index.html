@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Green Fox Club</title>
+    <link href="/static/style.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div th:include="header :: copy (${fox}, ${page})"></div>
+
+<main class="container">
+    <div class="container__profile">
+        <img th:src="'/static/images/greenfox.png'" th:alt="'Profile picture'" class="picture__profile">
+        <p class="container__profile--name" th:text="${fox.name}"></p>
+        <p class="container__profile--mood" th:text="'This is Mr.' + ${fox.getName()} +
+                        '. Currently living on ' + ${fox.food}+ ' and ' + ${fox.drink}"></p>
+    </div>
+    <div class="container__stats">
+        <div class="container__stats--row">
+            <p th:text="'Food'"></p>
+            <div>
+                <svg>
+                    <use xlink:href="#heart1"></use>
+                </svg>
+                <progress th:value="${fox.getFoodAmmount()}" max="100"></progress>
+                <svg th:height="'20px'" th:width="'20px'">
+                    <use xlink:href="#heart1"></use>
+                </svg>
+            </div>
+        </div>
+        <div class="container__stats--row">
+            <p th:text="'Drink'"></p>
+            <div>
+                <svg>
+                    <use xlink:href="#heart2"></use>
+                </svg>
+                <progress th:value="${fox.getDrinkAmmount()}" max="100"></progress>
+                <svg th:height="'20px'" th:width="'20px'">
+                    <use xlink:href="#heart2"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="table">
+        <div class="table__row">
+            <p th:text="'Food'"></p>
+            <p th:text="${fox.getFood()}"></p>
+        </div>
+        <div class="table__row">
+            <p class="table__cell" th:text="'Drink'"></p>
+            <p class="table__cell" th:text="${fox.getDrink()}"></p>
+        </div>
+    </div>
+
+    <h2 th:text="'Known tricks'"></h2>
+    <div class="table table__tricks" >
+        <div class="table__row" th:each="trick : ${tricks}">
+            <p th:text="${tricks.indexOf(trick)+1}"></p>
+            <p th:text="${trick.getTrick()}"></p>
+        </div>
+    </div>
+</main>
+<script type="text/javascript" src="/static/js/main.js"></script>
+
+</body>
+</html>
