@@ -1,12 +1,10 @@
 package com.greenfoxacademy.frontend.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "logs")
 public class Log {
 
     @Id
@@ -15,6 +13,9 @@ public class Log {
     LocalDateTime createdAt;
     String endpoint;
     String data;
+
+    public Log() {
+    }
 
     public Log(LocalDateTime createdAt, String endpoint, String data) {
         this.createdAt = createdAt;
@@ -44,5 +45,13 @@ public class Log {
 
     public void setData(String data) {
         this.data = data;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

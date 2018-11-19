@@ -14,4 +14,5 @@ public class RequestedNumber {
     public void setUntil(Integer until) {
         this.until = until;
     }
+
 }
