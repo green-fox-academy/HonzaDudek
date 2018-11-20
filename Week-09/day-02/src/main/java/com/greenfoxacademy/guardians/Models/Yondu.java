@@ -2,9 +2,9 @@ package com.greenfoxacademy.guardians.Models;
 
 public class Yondu {
 
-    double distance;
-    double speed;
-    double time;
+    Double distance;
+    Double speed;
+    Double time;
 
     public Yondu(double distance, double time) {
         this.distance = distance;
@@ -12,27 +12,27 @@ public class Yondu {
         this.time = time;
     }
 
-    public double getDistance() {
+    public Double getDistance() {
         return distance;
     }
 
-    public void setDistance(double distance) {
+    public void setDistance(Double distance) {
         this.distance = distance;
     }
 
-    public double getSpeed() {
+    public Double getSpeed() {
         return speed;
     }
 
-    public void setSpeed(double speed) {
+    public void setSpeed(Double speed) {
         this.speed = speed;
     }
 
-    public double getTime() {
+    public Double getTime() {
         return time;
     }
 
-    public void setTime(double time) {
+    public void setTime(Double time) {
         this.time = time;
     }
 }

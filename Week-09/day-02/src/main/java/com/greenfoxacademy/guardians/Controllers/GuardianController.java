@@ -24,8 +24,14 @@ public class GuardianController {
     }
 
     @GetMapping(value = "/yondu")
-    public Object calculateYondusSpeed(@RequestParam(value = "distance", required = false) double distance,
-                                       @RequestParam(value = "time", required = false) double time) {
-        return new Yondu(distance, time);
+    public Object calculateYondusSpeed(@RequestParam(value = "distance", required = false) Double distance,
+                                       @RequestParam(value = "time", required = false) Double time) {
+        if (distance != null && time != null) {
+            return new Yondu(distance, time);
+        } else if (distance == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Error("You have to provide distance"));
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Error("You have to provide time"));
+        }
     }
 }
