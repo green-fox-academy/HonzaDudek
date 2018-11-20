@@ -6,7 +6,7 @@ public class Yondu {
     double speed;
     double time;
 
-    public Yondu(double distance, double speed, double time) {
+    public Yondu(double distance, double time) {
         this.distance = distance;
         this.speed = distance/time;
         this.time = time;
