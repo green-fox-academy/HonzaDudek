@@ -71,4 +71,39 @@ public class GuardianControllerTest {
                 .andExpect(status().is(400))
                 .andExpect(jsonPath("error", is("You have to provide time")));
     }
+
+    @Test
+    public void testShipOverallStatusStatusOk() throws Exception {
+        mockMvc.perform(get("/rocket"))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void testShipOverallStatusResponse() throws Exception {
+        mockMvc.perform(get("/rocket")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.caliber25", is(0)))
+                .andExpect(jsonPath("$.caliber30", is(0)))
+                .andExpect(jsonPath("$.caliber50", is(0)))
+                .andExpect(jsonPath("$.shipstatus", is("empty")))
+                .andExpect(jsonPath("$.ready", is(false)));
+    }
+
+    @Test
+    public void testShipOverallStatusResponseAfterFill() throws Exception {
+        mockMvc.perform(get("/rocket/fill?caliber=.50&amount=5000")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.received", is(".50")))
+                .andExpect(jsonPath("$.amount", is(5000)))
+                .andExpect(jsonPath("$.shipstatus", is("40%")))
+                .andExpect(jsonPath("$.ready", is(false)));
+    }
+
+    @Test
+    public void testShipOverallStatusResponseFillWithNoParams() throws Exception {
+        mockMvc.perform(get("/rocket/fill")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().is(400))
+                .andExpect(jsonPath("$.error", is("Specify the caliber and amount of ammo to re-fill")));
+    }
 }

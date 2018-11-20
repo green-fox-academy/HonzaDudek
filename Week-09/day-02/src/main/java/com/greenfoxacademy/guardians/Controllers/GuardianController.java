@@ -1,9 +1,7 @@
 package com.greenfoxacademy.guardians.Controllers;
 
 
-import com.greenfoxacademy.guardians.Models.Errors;
-import com.greenfoxacademy.guardians.Models.Groot;
-import com.greenfoxacademy.guardians.Models.Yondu;
+import com.greenfoxacademy.guardians.Models.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class GuardianController {
+
+    Rocket ship = new Rocket();
 
     @GetMapping(value = "/groot")
     public Object translateToGroot(@RequestParam(value = "message", required = false) String received) {
@@ -33,5 +33,23 @@ public class GuardianController {
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Errors("You have to provide time"));
         }
+    }
+
+    @GetMapping(value = "/rocket")
+    public Object returnShipStatus() {
+        return ship;
+    }
+
+    @GetMapping(value = "/rocket/fill")
+    public Object returnShipStatus(@RequestParam(value = "caliber", required = false) String caliber,
+                                   @RequestParam(value = "amount", required = false) Integer amount) {
+        if (caliber != null && amount != null) {
+            ship.fillShip(caliber.substring(1,3), amount);
+            ship.setShipstatus();
+            return new ShipFill(ship, caliber, amount);
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Errors("Specify the caliber and amount of ammo to re-fill"));
+        }
+
     }
 }
