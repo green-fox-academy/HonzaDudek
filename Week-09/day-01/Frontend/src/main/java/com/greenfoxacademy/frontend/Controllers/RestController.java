@@ -34,21 +34,16 @@ public class RestController {
     }
 
     @GetMapping(value = "/greeter")
-    public Greeter greeter(@RequestParam(value = "name", required = false) String name,
+    public Object greeter(@RequestParam(value = "name", required = false) String name,
                            @RequestParam(value = "title", required = false) String title,
                            HttpServletRequest req) {
         if (name != null && title != null) {
             logRepo.save(new Log(LocalDateTime.now(), "/greeter", paramsToString(req)));
-            return new Greeter(name, title);
-
+            return new WelcomeMessage(name, title);
         } else if (name == null) {
-            Greeter nameOnly = new Greeter();
-            nameOnly.setError("Please provide a name!");
-            return nameOnly;
+            return new WelcomeMessage("name");
         } else {
-            Greeter titleOnly = new Greeter();
-            titleOnly.setError("Please provide a title!");
-            return titleOnly;
+            return new WelcomeMessage("title");
         }
     }
 
@@ -58,10 +53,14 @@ public class RestController {
     }
 
     @PostMapping(value = "/dountil/{action}")
-    public DoUntil doUntil(@PathVariable("action") String action,
-                           @RequestBody RequestedNumber number) {
-        logRepo.save(new Log(LocalDateTime.now(), "/dountil", action + " : " + number.getUntil().toString()));
-        return new DoUntil(number.getUntil(), action);
+    public Object doUntil(@PathVariable("action") String action,
+                          @RequestBody RequestedNumber number) {
+        try {
+                logRepo.save(new Log(LocalDateTime.now(), "/dountil", action + " : " + number.getUntil().toString()));
+                return new DoUntil(number.getUntil(), action);
+        } catch (NullPointerException e) {
+        return new Errors("Please provide a number!");
+        }
     }
 
     @PostMapping(value = "/arrays")
