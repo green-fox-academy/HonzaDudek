@@ -29,9 +29,9 @@ public class GuardianController {
         if (distance != null && time != null) {
             return new Yondu(distance, time);
         } else if (distance == null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Error("You have to provide distance"));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Errors("You have to provide distance"));
         } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Error("You have to provide time"));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Errors("You have to provide time"));
         }
     }
 }
