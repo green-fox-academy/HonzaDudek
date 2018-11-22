@@ -9,7 +9,7 @@
 
 </header>
 <main>
-    <p th:if="${error}" th:text="${error}"></p>
+    <p th:if="${error}" th:style="${error != null}? 'dislplay : block' : 'display:none'" th:text="${error}"></p>
 
     <form method="post" th:action="'/save-link'">
         <label th:for="'url'" th:text="'URL'"> </label>
