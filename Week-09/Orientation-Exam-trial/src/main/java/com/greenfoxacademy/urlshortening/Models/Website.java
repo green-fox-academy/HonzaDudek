@@ -58,6 +58,14 @@ public class Website {
         this.hitCount = hitCount;
     }
 
+    public int getSecretCode() {
+        return secretCode;
+    }
+
+    public void setSecretCode(int secretCode) {
+        this.secretCode = secretCode;
+    }
+
     public int generateSecretCode() {
         return (int)(Math.random()*(9999 - 1000)+1000);
     }

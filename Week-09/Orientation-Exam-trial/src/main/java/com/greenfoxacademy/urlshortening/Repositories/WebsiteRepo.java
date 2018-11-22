@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface WebsiteRepo extends CrudRepository<Website, Long> {
 
-    
+    Website findByAlias(String alias);
 
 }

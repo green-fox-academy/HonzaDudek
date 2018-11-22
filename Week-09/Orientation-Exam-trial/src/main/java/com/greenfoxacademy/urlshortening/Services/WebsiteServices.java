@@ -15,9 +15,13 @@ public class WebsiteServices {
         this.repo = repo;
     }
 
-    public void createShortenedURL(String url, String alias) {
-        Website newWebsite = new Website(url, alias);
-        repo.save(newWebsite);
+    public Website createShortenedURL(String url, String alias) {
+        if (repo.findByAlias(alias) == null) {
+            Website newWebsite = new Website(url, alias);
+            repo.save(newWebsite);
+            return newWebsite;
+        } else {
+            return null;
+        }
     }
-
 }
