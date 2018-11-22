@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>URL shortener</title>
+</head>
+<body>
+<header>
+
+</header>
+<main>
+    <form>
+        <label th:for="'url'" th:text="'URL'"> </label>
+        <input th:id="'url'" th:type="'text'" th:name="'url'">
+
+        <label th:for="'alias'" th:text="'Alias'"> </label>
+        <input th:id="'alias'" th:type="'text'" th:name="'alias'">
+
+        <button th:id="'submitButton'" th:type="'submit'" th:text="'Submit'"></button>
+    </form>
+</main>
+</body>
+</html>
