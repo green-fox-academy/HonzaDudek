@@ -24,4 +24,14 @@ public class WebsiteServices {
             return null;
         }
     }
+
+    public Website findURLbyAlias(String alias) {
+        return repo.findByAlias(alias);
+    }
+
+    public void increaseHitCount(String alias) {
+        Website website = repo.findByAlias(alias);
+        website.increaseHitCount();
+        repo.save(website);
+    }
 }

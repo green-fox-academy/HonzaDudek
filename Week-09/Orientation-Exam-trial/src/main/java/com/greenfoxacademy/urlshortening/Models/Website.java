@@ -58,6 +58,10 @@ public class Website {
         this.hitCount = hitCount;
     }
 
+    public void increaseHitCount() {
+        this.hitCount += 1;
+    }
+
     public int getSecretCode() {
         return secretCode;
     }
