@@ -13,10 +13,10 @@
 
     <form method="post" th:action="'/save-link'">
         <label th:for="'url'" th:text="'URL'"> </label>
-        <input th:id="'url'" th:type="'text'" th:name="'url'">
+        <input th:id="'url'" th:type="'text'" th:name="'url'" th:value="${error}? ${website.getUrl()} ">
 
         <label th:for="'alias'" th:text="'Alias'"> </label>
-        <input th:id="'alias'" th:type="'text'" th:name="'alias'">
+        <input th:id="'alias'" th:type="'text'" th:name="'alias'" th:value="${error}? ${website.getUrl()} ">
 
         <button th:id="'submitButton'" th:type="'submit'" th:text="'Submit'"></button>
     </form>

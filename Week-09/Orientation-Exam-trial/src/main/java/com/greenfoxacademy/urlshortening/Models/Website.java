@@ -1,5 +1,7 @@
 package com.greenfoxacademy.urlshortening.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +17,8 @@ public class Website {
     String url;
     String alias;
     int hitCount;
+
+    @JsonIgnore
     int secretCode;
 
     public Website() {
