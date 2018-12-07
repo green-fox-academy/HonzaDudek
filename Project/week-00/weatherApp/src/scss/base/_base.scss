@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font--family-primary;
+  font-size: $font--size__regular;
+  color: $font--color__primary;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}

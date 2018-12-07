@@ -1,0 +1,15 @@
+.weather__container {
+  max-width: $br__medium;
+  min-height: 200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background: $color--background__secondary;
+  border-radius: $border__radius--basic;
+
+  p {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+  }
+}

@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900&subset=latin-ext');
+
+$font--family-primary: 'Lato', sans-serif;
+
+// Text styles //
+
+$font--size__small: 14px;
+$font--size__regular: 20px;
+$font--size__large: 28px;
+
+$font--weight__regular: 400;
+$font--weight__bold: 900;
+
+$font--color__primary: #34495e;
+
+// Card styles //
+$color--background__primary: #ffffff;
+$color--background__secondary: #ecf0f1;
+$border__radius--basic: 10px;
+
+// Breakpoints //
+$br__xlarge: 1280px;
+$br__large: 980px;
+$br__medium: 736px;
+$br__small: 480px;

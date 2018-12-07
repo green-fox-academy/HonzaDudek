@@ -1,0 +1,7 @@
+<app-search class="search--container" (sendCity)="addCity($event)"></app-search>
+<div *ngIf="cities.length > 0" >
+  <div *ngFor="let city of cities">
+    <app-city [city]="city"></app-city>
+  </div>
+</div>
+<p *ngIf="cities.length === 0">Search for a city in a text box at the top of the widget.</p>
